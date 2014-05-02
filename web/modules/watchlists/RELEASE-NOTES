@@ -1,0 +1,30 @@
+*Version 1.5.3*
+* Modified behavior of the Filtering Select for the lookup style list creation.  The filter now remains open and allows multiple selections to be made from the list.
+* Added toggle all for inclusion/exclusion on chart and data export
+
+*Version 1.5.2*
+* Modified for Core 2.2
+
+*Version 1.5.1*
+* Modified for Core 2.1
+
+*Version 1.5.0*
+* Fixed bug where watchlist popup charts end up off screen while scrolling
+* Added ability to download XLSX File types for chart data.
+
+*Version 1.4.0*
+
+* Moved point hierarchy to the core
+* Point lookup
+* Updated to work with core 2.0
+* Bug fix for mobile device watchlists
+
+
+*Version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Version 1.0.1*
+
+* Documentation fixes

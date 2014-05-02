@@ -1,0 +1,38 @@
+*Version 2.0.5*
+* Updated to core 2.2
+
+*Version 2.0.4*
+* Fixed bug with MSTP addresses in the Discovery Tool
+* Added functionality to use the Object Description for the point name if it is collected by the Discovery Tool
+
+*Version 2.0.2*
+* Added UnInitImpl from data source page to clean up and cancel the running task for discovery.
+* Updated to work with core 2.1
+
+
+*Version 2.0.1*
+
+* Added functionality to add objects from an object list result as points in batch by selecting with a check box. Also added 76800 as an MS/TP baud rate.
+* Multiple performance, usability and documentation enhancements in the BACnet module.
+* Progress bars and additional error checking for various activities.
+* Points that are added in batch are automatically enabled
+
+
+*Version 2.0.0*
+
+* Added MS/TP
+
+
+*Version 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Version 1.0.0*
+
+* Initial production release

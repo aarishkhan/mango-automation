@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="modbusIpPublishing" key="dox.modbusIpPublishing" filename="modbusIpPublishing.htm">
+  </item>
+</doxManifest>

@@ -1,0 +1,33 @@
+*Release notes for 1.4.5*
+* Allowing point add filter to remain open to add multiple points 
+
+*Release notes for 1.4.4*
+* Updated to work with core 2.2
+
+*Release notes for 1.4.3*
+* Updated to work with core 2.1
+
+*Release notes for 1.4.2*
+
+* Added note to the API key input regarding update authority
+
+
+*Release notes for 1.4.1*
+
+* Changed to work with COSM API
+
+
+*Release notes for 1.4.0*
+
+* Added discard queue size
+* Updated to work with core 2.0
+
+
+*Release notes for 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Release notes for 1.0.0*
+
+Initial production release

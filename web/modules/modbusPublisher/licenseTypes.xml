@@ -1,0 +1,14 @@
+<licenseTypes>
+    <licenseType id="ip-only">
+        <description>20 Modbus I/P points.</description>
+        <price>50</price>
+        <features>
+            <modbusip-points>20</modbusip-points>
+        </features>
+    </licenseType>
+    <licenseType id="paid">
+        <description>No restrictions.</description>
+        <price>200</price>
+        <price fromType="ip-only">150</price> <!-- Upgrade from ip-only -->
+    </licenseType>
+</licenseTypes>

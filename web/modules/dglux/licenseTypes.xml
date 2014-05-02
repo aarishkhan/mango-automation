@@ -1,0 +1,17 @@
+<licenseTypes>
+    <licenseType id="Free with Core purchase">
+        <description>1 Dashboard with Core Purchase</description>
+        <price>0</price>
+    </licenseType>
+	
+	<licenseType id="5-Dashboards">
+        <description>5 Additional Dashboards</description>
+        <price>400</price>
+    </licenseType>
+
+	<licenseType id="10-Dashboards">
+        <description>10 Additional Dashboards</description>
+        <price>700</price>
+    </licenseType>
+	
+</licenseTypes>

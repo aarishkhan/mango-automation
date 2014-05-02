@@ -1,0 +1,195 @@
+*Version 2.2.2*
+* Fixed bugs in Point Hierarchy importer to allow merging of folders.  Folders with the same name are merged into system.  Points duplicated across folders will only be saved as the last folder they are stored in.
+* Renamed Import/Export icon to Configuration Import/Export
+* Upgraded ma-priv to 1.1.5 due to ssl, startup and shutdown enhancements
+* Upgraded serotonin-utils to 2.0.1 to capture new Serial Port stream enhancements that improve reliability
+* Adding shutdown button to modules page and creating startup/shutdown pages to show users the system progress during these times.
+* Added ability for administrators to switch user from the Users page
+
+*Version 2.2.1*
+* License bug where web server was loaded before license and was always limiting ip addresses to 3
+
+
+*Version 2.2.0*
+* Changed browser to open immediately to show startup screen
+* Fixed bug at startup where some conditions could cause Mango to hang if an error was detected.  Now Mango should shutdown after fatal errors during startup.
+* Added jSSC Serial Port library for easier use of serial port, RXTX has now been removed from the core and placed into any modules that still require it.
+* Fixed bug in Event Report View where custom event types were failing to show up
+* Added help to Chart view on data point details page to explain the Chart Servlet feature
+* Cleaned up css styling on data source page
+* Fixed bug on Data Source page where data source points table was leaving extra columns from previously viewed data sources
+* Fixed bug on Data Source page where the enable/disable light could get out of sync with the actual state of the data source 
+* Fixed bugs on Data Point Settings tab where both the Purge Override settings and Discarding Extreme Values were not saving.
+* Added db.useMetrics env boolean property to allow all queries to report times via the INFO log level.
+* Fixed bug in JScience Library where any units with a 4 in the numerical multiplier would fail to load.
+* Added workaround for bug on pages that try to hide() a node that isn't there.  This used to crash the page, now it logs the error to the js console if it exists, otherwise it is silent.
+* Added SystemSettings Events to notify on Settings Change or Remove, this is a implementable interface for modules/core classes to use if desired SystemSettingsListener and SystemSettingsEventDispatcher
+* Moved UI performance settings into its own System Settings Area
+* Adjusted Point Hierarchy importer to allow merging of folders.  Folders with the same name are merged into system.  Points duplicated across folders will only be saved as the last folder they are stored in.
+* Fixed bug in All Data Points List where after editing a data source the filter text remained but the filter was reset
+* Fixed bug with Global Script inclusion for JavaScript engine where Global scripts needed to be defined first.
+* Added feature to DataPointRT to allow the use of a custom timer in Interval Logging.  This can be useful when running simulations where time does not depend on Real Time. (Meta Data Point History Generate is one Example)
+
+
+*Version 2.1.3*
+* Fixed bug so alarms report page shows same alarms as legacy alarm page.
+* Fixed bug so sorting on Data Source and Data Point tables works properly
+* Added Do Not Log level for Alarms, this will not write anything to the database but will still fire events to be handled
+* Added ability to import/export System Settings
+* Added fine grain control for purging events on alarm level and type
+* Changed showHeader and showToolbar url parameters to work without having to add them explicitly to the page tag.
+
+
+*Version 2.1.2*
+Fixed bug that would cause copying data points with ConvertingTextRenderers to fail
+
+*Version 2.1.1*
+*Fixed bug when upgrading from an older version using a MySQL database
+
+*Version 2.1.0*
+* Fixed connection time out issue with MySQL
+* Improved MySQL data base performance for large number of events
+* Added a new event detector for Alphanumeric points that uses regex expressions to trigger an event
+* Bug fix to enable binary point values in Meta points and Scripting points
+* Enabled Mango to run with SSL for secure HTTPS browser connections
+* Auto export of the json configuration to a file which can then be remotely backed up.
+* Upgraded User page – users to be copied and set bulk permissions for each data source
+* Fixed a bug that prevented non-admin users from changing their password
+* Enabled a URL tag that disables the Mango header and menu | ?showHeader=false&showToolbar=false
+* Updated Event Detector emails to have more descriptive subjects
+* Replaced Engineering Units with JScience Units and include unit conversation
+* Updated all data point drop down list throughout Mango to use searchable lists 
+* Upgraded Active Alarm display at the top of every page
+* Added Alarm Report to allow for filtering and searching alarms
+* Reworked Data Source area for easier modification of points and data sources
+* Change PointValues and PointValueAnnotations tables to InnoDB in MySQL
+* Fixed missing graphic when using Serial Port Widget
+* Upgraded Dojo frontend library to 1.9.1, added DGrid tables and local use of scripts instead of download from CDN
+* Legacy Dojo Module will break this core, remove the DOJO Module if installed.
+* Data Source View upgraded to use filtered and sortable tables
+* Ability to download chart data as XLSX file and CSV, XLSX file can be used to import data via the Point Data Import module
+
+
+
+*Version 2.0.6*
+
+* Input stream ePoll moved from static reference to Provider runtime reference
+* Changed var names of module script and styles, and added module JSP fragments.
+* Enhanced servlet hook that allows multiple URI mappings to a single servlet.
+* Created flag that indicates a newly installed instance so that modules can handle the condition.
+* New module hooks to allow redirection based upon new instance, first user login, login, not logged in.
+* Added load order attribute to module to determine the order in which modules are loaded.
+* Added HostUtils for modules to be able to discover details about the host platform.
+* Added milliseconds to point history download CSV files.
+* Added close button to point details editing panel.
+* Display the point details beside the line in the point list when editing to avoid having to scroll.
+* Allow modules to open the system setting to a specific section.
+* In module builds: create the lib dir if not present, copy scripts to bin dir, pre-compile JSPs and tags, and added copy-web target for development purposes.
+* Added optional visibility to menu/toolbar items.
+* Removed domain name from license
+* Improved point hierarchy behaviour
+* Rearranged home url management, and added ability to clear home url
+* Fixed firing of point hierarchy clearing notification
+* Improved failover in configuration importing, and made output clearer by using different styles for error messages
+* Added "pre-home" category to default pages definition
+* Fixed potential race conditions in loading of cached definitions in module registry
+* Removed hard-coding of menu items in toolbar so they can be managed more dynamically
+* Added logging of failed login attempts
+
+
+*Version 2.0.5*
+
+* Added module lifecycle call "postDatabase" 
+* Performance improvements when loading points from the database
+* Fix for incorrect 0 values calculated on points with interval averaging upon initialization
+* Added persistence to sound muting so the value is saved between sessions. New users default to being muted.
+* Removed context from user home URL. Not required in MA.
+
+
+*Version 2.0.4*
+
+* Improved ability to upgrade from legacy versions of M2M2
+* Added last and lastValue methods to scripting point wrappers
+* Fix for starts and runtime statistics
+* Added overrides folder to the freemarker email template list.
+
+
+*Version 2.0.3*
+
+* Multiple references to M2M2 changed to MA
+* Allow modules to override dox folders (help documentation)
+* Allow modules to define handler interceptors
+* Allow the dojo URI to be overridden prior to JSP processing 
+
+
+*Version 2.0.2*
+
+* Added overriding of web assets
+* Fixed overriding of properties
+* Split out header and toolbar from page tag
+* Don't allow duplicate points in publishers.
+* Various fixes for chart rendering
+* Set the maximum number of unique IP addresses in free mode to 3
+
+
+*Version 2.0.1*
+
+* Various fixes for chart rendering
+* Fix for events page search where language is not en
+* Time zone handling fixes
+
+
+*Version 2.0.0*
+
+* Added user and system timezone
+* Hierarchical point value purge. Data sources can override the system, and points can override data sources.
+* Individual data source and point exports
+* Allow specification of data source name, xid, and point device name before copying data sources
+* Added publisher cache entry discard limit
+* Added individual table fields for point many point attributes
+* Replaced bootstrap with jar file discovery in the startup script
+* HTTP Components upgraded to version 4.2.1
+* Added script source hook, allowing modules to introduce global EMCAScript functions
+* Allow polling data sources to run from cron pattern
+* Allow setting of point values from within scripts
+* Upgraded Dojo to version 1.7
+* Removed timed shutdown in free mode
+* Added max unique IP addresses (5)
+* Point hierarchy moved from watchlist module to core
+* Upgraded Jetty
+* Upgraded JFreechart
+* Removed bootstrap layer. Startup scripts construct classpath instead.
+* Added lifecycle definition
+* Replaced initialize definition method with preInitialize, postInitialize, preTerminate, and postTerminate.
+* New time series quantization package
+* Improved stats package
+
+
+*Version 1.3.1*
+
+Enhancements:
+* Don't disable data sources when importing data points
+
+Bug fixes:
+* Point deserialization bug fix
+
+
+*Version 1.3.0*
+
+Enhancements:
+* Upgraded many supporting packages
+* Reduced restart request delay to 10 seconds from 60 seconds
+* Removed multiple indices from pointValues table to improve data logging performance
+* Added plot type attribute to data points
+* Made publisher "point missing" error messages more descriptive
+* Added active and idle database connection counts to internal data source
+* Updated supporting libraries
+* Added shared e-poll functionality to Modbus-based data sources
+* Copy the new data source name to the device name of copied points
+* Purge old events even if they have not been ack'ed
+* Added low and high limit values as markers to data point charts
+* Added forced read icon to data point details page. Depends on data source support.
+* Updated copyright date to 2012
+* Cleaner app shutdowns
+
+Bug fixes:

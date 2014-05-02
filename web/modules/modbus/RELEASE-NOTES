@@ -1,0 +1,42 @@
+*Release notes for version 1.4.5*
+* Improved serial port reliability by upgrading to Serotonin Utils 2.0.1 and modbus4j 2.0.1
+
+*Release notes for version 1.4.4*
+* Upgraded to use jssc instead of RXTX for serial communications
+* Removed Concurrency Settings for Serial connection as they are no longer supported or needed
+* Core 2.2
+
+*Release notes for version 1.4.3*
+
+* Added unInitImpl from data source page to clean up scan task after unloading the page.  This kills the scan poll 
+on the page as to not confuse the other modules. 
+* Updated to work with core version 2.1
+
+*Release notes for version 1.4.2*
+
+* Removed 1-240 slave id restriction
+* Added DWR conversion entry to prevent error rendering the data source list
+* Updated to work with core version 2.0.6
+
+
+*Release notes for version 1.4.1*
+
+* Added swapped 4B BCD data type
+* Licensing bug fix
+
+
+*Release notes for version 1.4.0*
+
+* I/O logging
+* Updated to work with core 2.0
+
+
+*Release notes for version 1.3.0*
+
+* E-poll support
+* Updated to work with core 1.3
+
+
+*Release notes for version 1.1.0*
+
+* License enforcement

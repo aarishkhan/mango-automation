@@ -1,0 +1,111 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.serotonin.bacnet4j.type.enumerated.ObjectType"%>
+
+<script type="text/javascript" src="${modulePath}/web/bacnet.js"></script>
+<script type="text/javascript">
+bndwr = BACnetIPEditDwr;
+  <jsp:include page="bacnet.jspf"/>
+
+  function sendBACnetWhoIs() {
+      bndwr.sendBACnetIpWhoIs($get("deviceId"), $get("localBindAddress"), $get("broadcastAddress"), $get("port"),
+              $get("timeout"), $get("segTimeout"), $get("segWindow"), $get("retries"),
+              $get("maxReadMultipleReferencesSegmented"), $get("maxReadMultipleReferencesNonsegmented"), sendWhoIsCB);
+  }
+  
+  function sendObjectListRequest(cb) {
+      bndwr.sendIpObjectListRequest($get("deviceId"), $get("localBindAddress"), $get("broadcastAddress"), $get("port"),
+              $get("timeout"), $get("segTimeout"), $get("segWindow"), $get("retries"),
+              $get("maxReadMultipleReferencesSegmented"), $get("maxReadMultipleReferencesNonsegmented"),
+              $get("objListNetNumber"), $get("objListMac"), $get("objListLink"), $get("objListDevId"), cb);
+  }
+  
+  function saveDataSourceImpl(basic) {
+      cancelWhoIs();
+      bndwr.saveBACnetIpDataSource(basic, $get("updatePeriods"), $get("updatePeriodType"), $get("deviceId"), 
+              $get("localBindAddress"), $get("broadcastAddress"), $get("port"), $get("strict"), $get("timeout"),
+              $get("segTimeout"), $get("segWindow"), $get("retries"), $get("covSubscriptionTimeoutMinutes"),
+              $get("maxReadMultipleReferencesSegmented"), $get("maxReadMultipleReferencesNonsegmented"),
+              saveDataSourceCB);
+  }
+  
+  function saveBACnetPointLocator(id, xid, name, locator, cb) {
+      bndwr.saveBACnetIPPointLocator(id, xid, name, locator, savePointCB);
+  }
+</script>
+    
+<tag:dataSourceAttrs descriptionKey="mod.bacnetIp.desc" helpId="bacnetIpDS">
+  <jsp:attribute name="extraPanels">
+    <jsp:include page="discovery.jspf">
+      <jsp:param name="linkKey" value="mod.bacnetIp.remoteDeviceLinkIp"/>
+    </jsp:include>    
+  </jsp:attribute>
+  
+  <jsp:body>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="dsEdit.updatePeriod"/></td>
+      <td class="formField">
+        <input type="text" id="updatePeriods" value="${dataSource.updatePeriods}" class="formShort"/>
+        <tag:timePeriods id="updatePeriodType" value="${dataSource.updatePeriodType}" s="true" min="true" h="true"/>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.deviceId"/></td>
+      <td class="formField"><input id="deviceId" type="text" value="${dataSource.deviceId}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetIp.localBindAddress"/></td>
+      <td class="formField"><input id="localBindAddress" type="text" value="${dataSource.localBindAddress}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetIp.broadcastAddress"/></td>
+      <td class="formField"><input id="broadcastAddress" type="text" value="${dataSource.broadcastAddress}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetIp.port"/></td>
+      <td class="formField"><input id="port" type="text" value="${dataSource.port}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.strict"/></td>
+      <td class="formField"><sst:checkbox id="strict" selectedValue="${dataSource.strict}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.timeout"/></td>
+      <td class="formField"><input id="timeout" type="text" value="${dataSource.timeout}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.segmentTimeout"/></td>
+      <td class="formField"><input id="segTimeout" type="text" value="${dataSource.segTimeout}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.segmentWindow"/></td>
+      <td class="formField"><input id="segWindow" type="text" value="${dataSource.segWindow}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.retries"/></td>
+      <td class="formField"><input id="retries" type="text" value="${dataSource.retries}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.covLease"/></td>
+      <td class="formField"><input id="covSubscriptionTimeoutMinutes" type="text" 
+              value="${dataSource.covSubscriptionTimeoutMinutes}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.maxReadMultSeg"/></td>
+      <td class="formField"><input id="maxReadMultipleReferencesSegmented" type="text" 
+              value="${dataSource.maxReadMultipleReferencesSegmented}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.maxReadMultNonseg"/></td>
+      <td class="formField"><input id="maxReadMultipleReferencesNonsegmented" type="text" 
+              value="${dataSource.maxReadMultipleReferencesNonsegmented}"/></td>
+    </tr>
+  </jsp:body>
+</tag:dataSourceAttrs>
+
+<jsp:include page="points.jspf">
+  <jsp:param name="linkKey" value="mod.bacnetIp.remoteDeviceLinkIp"/>
+</jsp:include>

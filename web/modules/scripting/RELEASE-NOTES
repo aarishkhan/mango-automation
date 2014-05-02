@@ -1,0 +1,16 @@
+*Release notes for version 1.0.4*
+* Adding multiple selections for point add filter list while retaining filter
+
+*Release notes for version 1.0.3*
+* Changing log directory to be  $MA_HOME/logs
+
+*Release notes for version 1.0.2*
+* Updated to work with core 2.2
+
+*Release notes for version 1.0.1*
+
+* Updated to work with core 2.1
+
+*Release notes for version 1.0.0*
+
+* Initial release

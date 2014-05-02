@@ -1,0 +1,12 @@
+<root>
+  <group label="Layout" ord="file:!modules/Layout.pwm"/>
+  <group label="Dashboard" ord="file:!modules/Dashboard.pwm"/>
+  <group label="Text" ord="file:!modules/Text.pwm"/>
+  <group label="Media" ord="file:!modules/Media.pwm"/>
+  <group label="Graphics" ord="file:!modules/Graphics.pwm"/>
+  <group label="Form Elements" ord="file:!modules/Form Elements.pwm"/>
+  <group label="HVAC+" ord="file:!modules/HVAC2.pwm"/>
+  <group label="Datacenter" ord="file:!modules/Datacenter.pwm"/>
+  <group label="Breaker Panel" ord="file:!modules/Breaker Panel.pwm"/>
+  <group label="Data" ord="file:!modules/Data.pwm"/>
+</root>

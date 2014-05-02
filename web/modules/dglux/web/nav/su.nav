@@ -1,0 +1,6 @@
+<nav version="1.0">
+  <node name="Home" ord="prophet:" icon="module://icons/x16/home.png">
+    <node name="Help" ord="" icon="module://icons/x16/questionMark.png"/>
+    <node name="New Node" ord="" icon="module://icons/x16/widgets/widget.png"/>
+  </node>
+</nav>

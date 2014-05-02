@@ -1,0 +1,12 @@
+<DGLuxConfig>
+    <dataUrl>../../../dglux/data</dataUrl>
+    <sessionUrl>../../../dglux/session</sessionUrl>
+    <userUrl>../../../dglux/user</userUrl>
+    <logoutUrl>../../../dglux/logout</logoutUrl>
+    <assetUrl>../../../dglux/file</assetUrl>
+    <viewerUrl>../../../dglux/view</viewerUrl>
+    <dbUrl>../../../dglux/db</dbUrl>
+    
+<!--     <indexUrl>index.jsp</indexUrl> -->
+	<methodMode>multiple</methodMode>
+</DGLuxConfig>

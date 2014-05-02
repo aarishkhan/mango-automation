@@ -1,0 +1,55 @@
+<!--
+    Copyright (C) 2014. Infinite Automation. All rights reserved.
+    @author Terry Packer
+-->
+<h1>Overview</h1>
+<p>
+    The MODBUS publisher allows publishing of Mango data point to a Slave Modbus device that is accessible on the localhost 
+    at the given port.  Each publisher only allows 1 slave but it is possible to create multiple publishers with unique Slave ids.
+    All publishers that have the same port number will be Slaves within the same Slave Set (Modbus Server).  It also possible to 
+    create multiple Slave Sets as long as they are on different ports.
+    
+      <b>Caution on selecting a port, since port 502 is below 1024 it is a secure port and on linux is only openable if Mango is run 
+    with proper privileges.</b>
+</p>
+
+
+<h1>Publisher Configuration</h1>
+<p>
+  The <b>Port</b> is the port number that is opened to accept incomming connections.
+ </p>
+<p>
+  The <b>Slave id</b> is the Slave Id for this group of data points.  Since multiple slaves can be created on one Mango
+  instance it is important to organize the points with the correct slave id.  The generally accepted maximum slave id is 247.
+ </p>
+<p>
+  When the messages are <b>Encapsulated</b> the modbus message contains a length within the message and doesn't require the Master or Slave to read the TCP/IP Header.
+ </p>
+<h1>Notes</h1>
+<p>
+ Ensure you have the proper privileges to open port 502.
+</p>
+
+<h1>Published Point Configuration</h1>
+
+<p>When adding a point to be published the following information is available.</p>
+
+<p>The <b>Name</b> is the data point name.</p>
+
+<p>The <b>Status</b> shows whether the point is enabled or disabled</p>
+
+<p>The <b>Type</b> show the data type for the point.  This is important as it restricts the Modbus settings for the point.</p>
+
+<p>The <b>Register range</b> can be 1 of 4 types, Coil, Input, Holding Register or Input Register.  Coils and Inputs can only contain Binary data while the registers can contain any data type.</p>
+
+<p>The <b>Offset</b> is the 0 based location where the data will start.  It is important to understand how large your data is so that you can space out the data and not have data overlap. 
+For example, each offset location represents 2 bytes of data so if you are publishing a Numeric piece of data you must space your next point at least 4 offsets away.
+</p>
+
+<p>The <b>Modbus data type</b> is not selectable.  This is chosen by Mango depending on the data type of the point you are publishing. 
+<ul>
+    <li>Numeric point types are published as 8 byte floats</li>
+    <li>Multistate point types are published as 8 byte signed integers</li>
+    <li>Binary point types are published as binary data (the lowest bit of the first byte in a register)</li>
+    <li>Alphanumerica point types are published as Variable length strings.  The string size is always even as to fill out the full register.  An odd length string is 0-padded at the end</li>
+</ul>

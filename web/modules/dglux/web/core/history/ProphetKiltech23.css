@@ -1,0 +1,2256 @@
+/*
+KingnareStyle by Jinxin.
+Based on instructions from Adobe and inspired by Express Photoshop. 
+
+Copyright (c) 2008 www.kingnare.com  See:
+http://code.google.com/p/kingnarestyle
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+@font-face {
+    src: local("Verdana");
+    fontFamily: ArialEmbedded;
+    fontWeight: normal;
+    advancedAntiAliasing: true;
+    fontAntiAliasType: advanced;
+    fontGridFitType: subpixel;
+    unicodeRange:
+	U+0041-U+005A, /* Upper-Case [A..Z] */
+	U+0061-U+007A, /* Lower-Case a-z */
+	U+0030-U+0039, /* Numbers [0..9] */
+	U+0020-U+002F, /* Punctuation */
+	U+003A-U+0040, /* Punctuation */
+	U+005B-U+0060, /* Punctuation */
+	U+007B-U+007E, /* Punctuation */
+	U+00BA-U+00BA, /* Degree Sign */
+	U+00B0-U+00B3; /* Degree Sign 2,squared,cubed*/
+
+	
+}
+ 
+@font-face {
+    src: local("Verdana");
+    fontFamily: ArialEmbedded;
+    fontWeight: bold;
+    advancedAntiAliasing: true;
+    fontAntiAliasType: advanced;
+    fontGridFitType: subpixel;
+    unicodeRange:
+	U+0041-U+005A, /* Upper-Case [A..Z] */
+	U+0061-U+007A, /* Lower-Case a-z */
+	U+0030-U+0039, /* Numbers [0..9] */
+	U+0020-U+002F, /* Punctuation */
+	U+003A-U+0040, /* Punctuation */
+	U+005B-U+0060, /* Punctuation */
+	U+00BA-U+00BA, /* Degree Sign */
+	U+00B0-U+00B0; /* Degree Sign 2*/
+}
+
+@font-face {
+    src: local("Verdana");
+    fontFamily: ArialEmbedded;
+    fontWeight: normal;
+    font-style: italic;
+    advancedAntiAliasing: true;
+    fontAntiAliasType: advanced;
+    fontGridFitType: subpixel;
+    unicodeRange:
+	U+0041-U+005A, /* Upper-Case [A..Z] */
+	U+0061-U+007A, /* Lower-Case a-z */
+	U+0030-U+0039, /* Numbers [0..9] */
+	U+0020-U+002F, /* Punctuation */
+	U+003A-U+0040, /* Punctuation */
+	U+005B-U+0060, /* Punctuation */
+	U+00BA-U+00BA, /* Degree Sign */
+	U+00B0-U+00B0; /* Degree Sign 2*/
+}
+
+global
+{
+	backgroundGradientAlphas: 1.0, 1.0;
+	backgroundGradientColors: #000000, #000000;
+	backgroundDisabledColor: #DDDDDD;
+	focusThickness: 1;
+	focusAlpha: 0.0;
+
+	font-size: 11;
+	font-family: ArialEmbedded;
+	themeColor: #0051ff;
+	color: #000000;
+}
+
+
+Application
+{
+	font-family: ArialEmbedded;
+	backgroundGradientAlphas: 1.0, 1.0;
+	verticalGap:0;
+	
+}
+.carbonCanvas
+{
+	borderSkin: ClassReference("mx.skins.ApplicationSkin");
+	backgroundImage: Embed("/kiltech/tile.png");
+	backgroundColor: #000000;
+	backgroundImageAlpha: 0.15;
+}
+ApplicationControlBar.swooshApplicationControlBar
+{
+	borderSkin: Embed(source="/kiltech/additionalSkins.swf", symbol="ApplicationControlBar_borderSkin");
+	paddingLeft:23;
+	paddingTop:5;
+	paddingBottom:0;
+	verticalAlign:top;
+	horizontalGap:0;
+}
+
+Button.ToggleAdvanced
+{
+	upSkin: Embed("/assets/btn_advanced_collapsed.png");
+	overSkin: Embed("/assets/btn_advanced_collapsed_hot.png");
+	downSkin: Embed("/assets/btn_advanced_collapsed.png");
+	selectedUpSkin: Embed(source='/assets/btn_advanced_expanded.png');
+	selectedOverSkin: Embed(source='/assets/btn_advanced_expanded_hot.png');
+	selectedDownSkin: Embed(source='/assets/btn_advanced_expanded.png');
+}
+ProphetDataActionPopupButton
+{
+	upSkin: Embed("/assets/btn_advanced_collapsed.png");
+	overSkin: Embed("/assets/btn_advanced_collapsed_hot.png");
+	downSkin: Embed("/assets/btn_advanced_collapsed.png");
+	disabledSkin: Embed("/assets/btn_advanced_collapsed.png");
+}
+
+DockablePanel.widgetPanel
+{
+	borderThickness: 0;
+}
+	
+Canvas.MainCanvasStyle
+{
+	borderSkin: Embed(source="/kiltech/additionalSkins.swf", symbol="Canvas_mainBox_borderSkin");
+}
+Canvas.canvasWithBorder
+{
+	borderStyle:solid;
+	borderColor:#757778;
+	borderThickness:2;
+}
+DockableHDividedBox.mainBox
+{
+	paddingLeft:10;
+	paddingTop:5;
+	paddingBottom:11;
+	paddingRight:10;
+}
+
+PleatItem
+{
+	borderColor: #222222;
+	backgroundAlpha: 0;
+	borderStyle: solid; 
+	borderThickness: 1;
+}
+
+HBox,Pleat
+{
+	backgroundAlpha: 1.0;
+    backgroundColor: #101010;
+}
+HBox.hierarchyNavigator
+{
+	backgroundAlpha: 0;
+}
+PopupMenuBox
+{
+	verticalAlign: middle;
+	backgroundAlpha: 0.6;
+	backgroundColor: #111111;
+	paddingBottom: 1;
+	paddingLeft: 4;
+	paddingRight: 4;
+	paddingTop: 2;
+	horizontalGap: 1;
+	borderThickness: 0; 
+	borderStyle: none;
+	borderColor: #333333;
+}
+
+VBox
+{
+	paddingTop:0;
+	backgroundColor: #101010;
+}
+
+VBox.nodeDataVBox
+{
+	backgroundColor: #111111;
+	paddingLeft:4;
+	paddingTop:4;
+	paddingBottom:4;
+	paddingRight:4;
+}
+VBox.dynamicBoxEdit
+{
+	borderStyle: solid;
+	borderThickness: 1;
+	borderAlpha: 1;
+	borderColor: #777777;
+}
+
+DGValueList
+{
+	background-color: #555555;
+}
+
+DGHistoryTable
+{
+	background-color: #555555;
+}
+
+ProphetStageContainer
+{
+	background-alpha: 0;
+	background-color: #00FF00;
+}
+
+	
+
+
+/*
+//------------------------------
+//  ApplicationControlBar
+//------------------------------
+*/
+ApplicationControlBar
+{
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ApplicationControlBar_BackgroundSkin");
+}
+
+
+/*
+//------------------------------
+//  global
+//------------------------------
+*/
+
+
+
+/*
+//------------------------------
+//  Alert
+//------------------------------
+*/
+Alert
+{
+	backgroundAlpha:1;
+	borderAlpha:1;
+	backgroundColor:#333333;
+	borderColor:#555555;
+	buttonStyleName: Button;
+	paddingBottom: 8;
+}
+
+
+/*
+//------------------------------
+//  Accordion
+//------------------------------
+*/
+Accordion
+{
+	borderStyle:solid;
+	borderColor:#000000;
+	borderThickness:1;
+	fontWeight:normal;
+	color: #aaaaaa;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor:#FFFFFF;
+	disabledColor:#5A5A5A;
+	backgroundColor: #111111;
+	/*backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="Global_Bg");
+	backgroundSize:"100%";*/
+}
+
+
+HAccordion
+{
+	borderStyle:solid;
+	borderColor:#000000;
+	borderThickness:1;
+	fontWeight:normal;
+	color: #aaaaaa;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor:#FFFFFF;
+	disabledColor:#5A5A5A;
+	backgroundColor: #111111;
+	background-alpha: 0;
+	/*backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="Global_Bg");
+	backgroundSize:"100%";*/
+}
+
+/*
+//------------------------------
+//  AccordionHeader
+//------------------------------
+*/
+AccordionHeader
+{
+
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_downSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_overSkin");
+	selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_disabledSkin");
+	selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_downSkin");
+	selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_overSkin");
+	selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_selectedSkin");
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="AccordionHeader_upSkin");
+	color: #aaaaaa;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#444444;
+	disabledColor:#111111;
+	selectedColor:#ffffff;
+}
+
+
+/*
+//------------------------------
+//  Button
+//------------------------------
+*/
+Button
+{
+	color: #AAAAAA;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor:#FFFFFF;
+	disabledColor:#5A5A5A;
+	fontWeight:normal;
+	
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_upSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_overSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_downSkin");
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_disabledSkin");
+	
+	selectedUpSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedUpSkin');
+	selectedOverSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedOverSkin');
+	selectedDownSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedDownSkin');
+	selectedDisabledSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedDisabledSkin');
+}
+
+DGButton
+{
+	borderColor: #AAB3B3;
+    color: #0B333C;
+    cornerRadius: 4;
+    disabledColor: #AAB3B3;
+    disabledIcon: ClassReference(null);
+    disabledSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    downIcon: ClassReference(null);
+    downSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    fillAlphas: 0.6, 0.4, 0.6, 0.4;
+    fillColors: #E6EEEE, #FFFFFF, #E6EEEE, #FFFFFF; 
+	/*fillColors: 3381504,#FFFFFF,3394560,#FFFFFF;*/
+    focusAlpha: 0.5;
+    focusRoundedCorners: tl tr bl br;
+    fontAntiAliasType: advanced;
+    fontFamily: ArialEmbedded;
+    fontGridFitType: pixel;
+    fontSharpness: 0;
+    fontSize: 10;
+    fontStyle: normal;
+    fontThickness: 0;
+    fontWeight: bold;
+    highlightAlphas: 0.3, 0.0;
+    horizontalGap: 2;
+    icon: ClassReference(null);
+    kerning: false;
+    leading: 2;
+    letterSpacing: 0;
+    overIcon: ClassReference(null);
+    overSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    paddingBottom: 0;
+    paddingLeft: 0;
+    paddingRight: 0;
+    paddingTop: 0; 
+    repeatDelay: 500;
+    repeatInterval: 35;
+    selectedDisabledIcon: ClassReference(null);
+    selectedDisabledSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    selectedDownIcon: ClassReference(null);
+    selectedDownSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    selectedOverIcon: ClassReference(null);
+    selectedOverSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    selectedUpIcon: ClassReference(null);
+    selectedUpSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    skin: ClassReference("mx.skins.halo.ButtonSkin");
+    textAlign: center;
+    textDecoration: none;
+    textIndent: 0;
+    textRollOverColor: #2B333C;
+    textSelectedColor: #000000;
+    upIcon: ClassReference(null);
+    upSkin: ClassReference("mx.skins.halo.ButtonSkin");
+    verticalGap: 2;	
+}
+
+DGTextIndicator
+{
+	textAlign:center;
+}
+DGTextInput
+{
+	borderSkin: ClassReference("mx.skins.halo.HaloBorder");
+	background-alpha: 0;
+	background-color: 0;
+	border-style: solid;
+	border-color: #B7BABC;
+}	
+
+DGTextArea
+{
+	borderSkin: ClassReference("mx.skins.halo.HaloBorder");
+	background-alpha: 0;
+	background-color: 0;
+}	
+
+DGComboBox
+{
+	color: 0;
+	borderColor: #C4CCCC;
+	cornerRadius: 5;
+	disabledSkin: ClassReference("mx.skins.halo.ComboBoxArrowSkin");
+	downSkin: ClassReference("mx.skins.halo.ComboBoxArrowSkin");
+	overSkin: ClassReference("mx.skins.halo.ComboBoxArrowSkin");
+	upSkin: ClassReference("mx.skins.halo.ComboBoxArrowSkin");
+}		
+
+.toolboxButton
+{
+	color: #AAAAAA;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor:#FFFFFF;
+	disabledColor:#5A5A5A;
+	fontWeight:normal;
+	
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_upSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_overSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_downSkin");
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_disabledSkin");
+	
+	selectedUpSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedUpSkin');
+	selectedOverSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedOverSkin');
+	selectedDownSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedDownSkin');
+	selectedDisabledSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedDisabledSkin');
+	
+	popUpDownSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_downSkin');
+	popUpOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_overSkin");
+}
+
+.greenButton
+{
+	color: #AAAAAA;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor:#FFFFFF;
+	disabledColor:#5A5A5A;
+	fontWeight:normal;
+	
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="GreenBackgroundSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_overSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_downSkin");
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Button_disabledSkin");
+	
+	selectedUpSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedUpSkin');
+	selectedOverSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedOverSkin');
+	selectedDownSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedDownSkin');
+	selectedDisabledSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_selectedDisabledSkin');
+}
+
+/*
+//------------------------------ 
+//  ButtonBar 
+//------------------------------ 
+*/ 
+
+ButtonBar 
+{ 
+        buttonStyleName: "middleButtonBarButton"; 
+        firstButtonStyleName: "firstButtonBarButton"; 
+        lastButtonStyleName: "lastButtonBarButton";
+}
+
+
+/*
+//------------------------------
+//  CheckBox
+//------------------------------
+*/
+CheckBox
+{
+	disabledIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_disabledIcon");
+	downIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_downIcon");
+	overIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_overIcon");
+	selectedDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_selectedDisabledIcon");
+	selectedDownIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_selectedDownIcon");
+	selectedOverIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_selectedOverIcon");
+	selectedUpIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_selectedUpIcon");
+	upIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="CheckBox_upIcon");
+}
+
+
+/*
+//------------------------------
+//  ColorPicker
+//------------------------------
+*/
+
+ColorPicker
+{
+	focusAlpha:	0;
+	swatchPanelStyleName:mySwatchPanelStyle;
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_downSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_overSkin");
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_upSkin");
+	editableDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_disabledSkin");
+	editableDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_downSkin");
+	editableOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_overSkin");
+	editableUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ColorPicker_upSkin");
+}
+
+.mySwatchPanelStyle{
+	backgroundColor:#222222;
+	highlightColor:#222222;
+	
+	borderStyle:solid;
+	borderColor:#000000;
+	borderThickness:1;
+	columnCount:20;
+	horizontalGap:0;
+	previewHeight:22;
+	previewWidth:50;
+	swatchBorderColor:#000000;
+	swatchGridBackgroundColor:#000000;
+	swatchGridBorderSize:0;
+	swatchHeight:12;
+	swatchHighlightColor:#ffffff;
+	swatchHighlightSize:1;
+	swatchWidth:12;
+	textFieldWidth:72;
+	verticalGap:0;
+}
+
+
+/*
+//------------------------------
+//  ComboBox
+//------------------------------
+*/
+ComboBox
+{	
+/* using symbol */
+/* 	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_upSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_overSkin");	
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_downSkin");
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_disabledSkin");
+
+	editableUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_editableUpSkin"); 
+	editableOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_editableOverSkin");
+	editableDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_editableDownSkin");
+	editableDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ComboBoxArrow_editableDisabledSkin"); */
+	
+/* using ClassReference */
+	upSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	overSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	downSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	disabledSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+		
+	editableUpSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	editableOverSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	editableDownSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	editableDisabledSkin: ClassReference("com.kingnare.skins.ComboBox.ComboBoxSkin");
+	
+	color: #CCCCCC;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#ffffff;
+	textDisabledColor: #1e1e1e;
+	cornerRadius: 0;
+	arrowButtonWidth: 18;
+	borderThickness: 0;
+	fontWeight: normal;
+	dropdownStyleName: dropDown;
+}
+
+.dropDown {
+	branchIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_branchIcon");
+	branchDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_branchDisabledIcon");
+	checkIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_checkIcon");
+	checkDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_checkDisabledIcon");
+	radioIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_radioIcon");
+	radioDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_radioDisabledIcon");
+	separatorSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_separatorSkin");
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="BackgroundSkin"); 
+	backgroundSize: "100%";  
+	backgroundAlpha: 1.0;
+	borderStyle: solid;
+	borderThickness: 1;
+	borderColor: #000000;
+	cornerRadius:0;
+	color: #CCCCCC;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#dddddd;
+	rollOverColor: #333333;
+	selectionColor: #444444;
+}
+
+/*
+//------------------------------
+//  ControlBar
+//------------------------------
+*/
+ControlBar
+{
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Control_borderSkin");
+
+	paddingLeft:5;
+	paddingTop:4;
+	paddingBottom:4;
+	paddingRight:5;
+	/*borderSkin: Embed(source="additionalSkins.swf", symbol="ControlBar_borderSkin"); */
+}
+
+
+/*
+//------------------------------
+//  CursorManager
+//------------------------------
+*/
+CursorManager
+{
+	busyCursor: Embed(source="/kiltech/kiltechstyle.swf", symbol="BusyCursor");
+	busyCursorBackground: Embed(source="/kiltech/kiltechstyle.swf",symbol="BusyCursor");
+}
+
+
+/*
+//------------------------------
+//  DataGrid
+//------------------------------
+*/
+DataGrid
+{
+
+	columnDropIndicatorSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DataGrid_columnDropIndicatorSkin");
+	columnResizeSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DataGrid_columnResizeSkin");
+	/*headerSeparatorSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DataGrid_headerSeparatorSkin");*/
+	headerSeparatorSkin: ClassReference("com.kingnare.skins.DataGrid.DataGridHeaderSeparatorSkin"); 
+	sortArrowSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DataGrid_sortArrowSkin");
+	stretchCursor: Embed(source="/kiltech/kiltechstyle.swf",symbol="DividedBox_horizontalCursor");
+	headerStyleName: "dataGridHeader";
+	color:#BBBBBB;
+	rollOverColor: #555555;
+	selectionColor: #444444;
+	textRollOverColor:#ffffff;
+	textSelectedColor:#ffffff;
+	selectiondDisabledColor: #1e1e1e;
+	borderStyle: solid;
+	borderThickness:1;
+	borderColor: #000000;
+	alternatingItemColors: #333333, #333333; 
+	disabledColor: #666666;
+	verticalGridLineColor: #000000;
+	headerColors: #2D2D2D, #222222;
+	verticalGridLines: false;
+	backgroundAlpha: 0;
+}
+.MetricsStyle
+{
+	alternatingItemColors: #101010,#101010;
+	backgroundColor: #101010;
+	backgroundAlpha: 1;
+}
+
+
+/*
+//------------------------------
+//  DataGridHeader
+//------------------------------
+*/
+.dataGridHeader
+{
+	color: #aaaaaa;
+	textRollOverColor:#ffffff;
+	textSelectedColor:#ffffff;
+}
+
+
+/*
+//------------------------------
+//  DateChooser
+//------------------------------
+*/
+DateChooser
+{
+	headerColors: #2D2D2D, #222222;
+	cornerRadius:0;
+	borderColor:#000000;
+	backgroundColor:#444444;
+	color:#aaaaaa;
+	textRollOverColor:#ffffff;
+	textSelectedColor: #ffffff;
+	selectionColor:#222222;
+	
+	nextMonthDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthDisabledSkin");
+	nextMonthDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthDownSkin");
+	nextMonthOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthOverSkin");
+	nextMonthUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthUpSkin");
+	prevMonthDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthDisabledSkin");
+	prevMonthDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthDownSkin");
+	prevMonthOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthOverSkin");
+	prevMonthUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthUpSkin");
+	
+	nextYearDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextYearDisabledSkin");
+	nextYearDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextYearDownSkin");
+	nextYearOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextYearOverSkin");
+	nextYearUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextYearUpSkin");
+	prevYearDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevYearDisabledSkin");
+	prevYearDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevYearDownSkin");
+	prevYearOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevYearOverSkin");
+	prevYearUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevYearUpSkin");
+	
+	todayStyleName: "dateChooserToday";
+	headerStyleName: "dateChooserHeader";
+	weekDayStyleName: "dateChooserWeekDay";
+	/* 
+	todayIndicatorSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_todayIndicatorSkin",scaleGridRight="17",scaleGridLeft="3",scaleGridTop="3",scaleGridBottom="17");
+	rollOverIndicatorSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_rollOverIndicatorSkin");
+	selectionIndicatorSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_selectionIndicatorSkin");
+	*/
+	rollOverColor: #333333;
+	
+}
+
+.leftSmallButton
+{
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthDisabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthDownSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthOverSkin");
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthUpSkin");
+	selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthDisabledSkin");
+	selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthDownSkin");
+	selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthOverSkin");
+	selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_prevMonthUpSkin");
+}
+.rightSmallButton
+{
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthDisabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthDownSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthOverSkin");
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthUpSkin");
+	selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthDisabledSkin");
+	selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthDownSkin");
+	selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthOverSkin");
+	selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="DateChooser_nextMonthUpSkin");
+}
+
+/*
+//------------------------------
+//  DateField
+//------------------------------
+*/
+DateField
+{
+	dateChooserStyleName: DateChooser;
+	upSkin:	Embed(source="/kiltech/kiltechstyle.swf", symbol="DateField_upSkin");
+	overSkin:	Embed(source="/kiltech/kiltechstyle.swf", symbol="DateField_overSkin");
+	downSkin:	Embed(source="/kiltech/kiltechstyle.swf", symbol="DateField_downSkin");
+	disabledSkin:	Embed(source="/kiltech/kiltechstyle.swf", symbol="DateField_disabledSkin");
+}
+.dateChooserHeader
+{
+	color: #ffffff;
+	horizontalGap:4;
+	fontWeight:normal;
+	height:20px;
+}
+.dateChooserWeekDay
+{
+	color: #ffffff;
+	horizontalGap:4;
+	fontWeight:normal;
+}
+
+
+/*
+//------------------------------
+//  FormItem
+//------------------------------
+*/
+FormItem
+{
+	indicatorSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="FormItem_indicatorSkin");  
+}
+
+
+/*
+//------------------------------
+//  HDividedBox
+//------------------------------
+*/
+HDividedBox
+{
+	dividerSkin: ClassReference("mx.core.BitmapAsset");
+	/*dividerSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="DividedBox_HDividerSkin");*/
+	horizontalDividerCursor: Embed(source="/kiltech/kiltechstyle.swf",symbol="DividedBox_horizontalCursor");
+	dividerColor: #000000;
+	horizontalGap: 4;
+}
+
+
+/*
+//------------------------------
+//  HRule
+//------------------------------
+*/
+HRule
+{
+	strokeColor: #000000;
+	shadowColor: #CCCCCC;
+	strokeWidth: 1;
+}
+
+
+/*
+//------------------------------
+//  HScrollBar
+//------------------------------
+*/
+HScrollBar
+{
+	trackUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	trackOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	trackDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	trackDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	
+	thumbUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbUpSkin");
+	thumbOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbOverSkin");
+	thumbDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbDownSkin");
+	thumbIcon:	Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbIcon");
+	
+	downArrowUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowUpSkin");
+	downArrowOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowOverSkin");
+	downArrowDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowDownSkin");
+	downArrowDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowDisabledSkin");
+	upArrowUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowUpSkin");
+	upArrowOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowOverSkin");
+	upArrowDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowDownSkin");
+	upArrowDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowDisabledSkin");
+	
+	/* upArrowSkin:  ClassReference(null);
+	downArrowSkin:  ClassReference(null); */
+}
+
+/*
+//------------------------------
+//  VScrollBar
+//------------------------------
+*/
+VScrollBar
+{
+	trackUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	trackOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	trackDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	trackDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_trackSkin");
+	
+	thumbUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbUpSkin");
+	thumbOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbOverSkin");
+	thumbDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbDownSkin");
+	thumbIcon:	Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_thumbIcon");
+	
+	downArrowUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowUpSkin");
+	downArrowOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowOverSkin");
+	downArrowDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowDownSkin");
+	downArrowDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_downArrowDisabledSkin");
+	upArrowUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowUpSkin");
+	upArrowOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowOverSkin");
+	upArrowDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowDownSkin");
+	upArrowDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ScrollBars_upArrowDisabledSkin");
+	
+	/* upArrowSkin:  ClassReference(null);
+	downArrowSkin:  ClassReference(null); */
+}
+
+/*
+//------------------------------
+//  HSlider
+//------------------------------
+*/
+HSlider
+{
+	trackSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderTrack_Skin");
+	showTrackHighlight: true;
+	thumbUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_upSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	thumbOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_overSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	thumbDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_downSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	thumbDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_disabledSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	trackHighlightSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderHighlight_Skin");
+	dataTipOffset: 5;
+}
+
+
+/*
+//------------------------------
+//  Label
+//------------------------------
+*/
+Label
+{
+	color: #FFFFFF;
+	disabledColor: #BBBBBB;
+}
+
+DataDefinitionListRenderer
+{
+	color: #FFFFFF;
+}
+
+/*
+//------------------------------
+//  LinkButton
+//------------------------------
+*/
+LinkButton
+{
+	disabledSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+	downSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+	overSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+	selectedDisabledSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+	selectedDownSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+	selectedOverSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+	selectedUpSkin:ClassReference("com.kingnare.skins.LinkButtonSkin");
+	upSkin: ClassReference("com.kingnare.skins.LinkButtonSkin");
+
+	focusAlpha: 0.2;
+	cornerRadius: 15;
+	rollOverColor: #AAAAAA;
+	selectionColor: #77CC77;
+	textSelectedColor: #FFFFFF;
+	paddingTop: 0;
+	paddingBottom: 0;
+	disabledColor: #EEEEEE;
+}
+LinkBar
+{
+    paddingBottom: -5;
+    paddingTop: -5;
+    verticalGap: 0;
+}
+/*
+//------------------------------
+//  HorizontalList
+//------------------------------
+*/
+HorizontalList
+{
+	color: #BBBBBB;
+	rollOverColor: #555555;
+	selectionColor: #444444;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	borderColor: #222222;
+	disabledColor: #666666;
+	backgroundColor: #111111;
+	borderStyle: solid;
+	
+}
+
+/*
+//------------------------------
+//  List
+//------------------------------
+*/
+List
+{
+	backgroundColor: #101010;
+	borderColor: #333333;
+	color: #BBBBBB;
+	rollOverColor: #555555;
+	selectionColor: #444444;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	disabledColor: #666666;
+	borderStyle: solid;
+}
+
+TileList
+{
+	backgroundColor: #101010;
+	borderColor: #333333;
+	color: #BBBBBB;
+	rollOverColor: #555555;
+	selectionColor: #444444;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor: #FFFFFF;
+	disabledColor: #666666;
+	borderStyle: solid;
+}
+/*
+//------------------------------
+//  Menu
+//------------------------------
+*/
+Menu
+{
+	branchIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_branchIcon");
+	branchDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_branchDisabledIcon");
+	checkIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_checkIcon");
+	checkDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_checkDisabledIcon");
+	radioIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_radioIcon");
+	radioDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_radioDisabledIcon");
+	separatorSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_separatorSkin");
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="BackgroundSkin"); 
+	backgroundSize: "100%";  
+	backgroundColor: #111111;
+	backgroundAlpha: 1.0;
+	borderStyle: solid;
+	borderThickness: 1;
+	borderColor: #000000;
+	roundedCorners:0;
+	color: #CCCCCC;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#dddddd;
+	rollOverColor: #333333;
+	selectionColor: #444444;
+	shadowDistance: 0;
+	useRollOver: true;
+}
+ProphetDataActionMenu
+{
+	branchIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_branchIcon");
+	branchDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_branchDisabledIcon");
+	checkIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_checkIcon");
+	checkDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_checkDisabledIcon");
+	radioIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_radioIcon");
+	radioDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_radioDisabledIcon");
+	separatorSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Menu_separatorSkin");
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="BackgroundSkin"); 
+	backgroundSize: "100%";  
+	backgroundColor: #111111;
+	backgroundAlpha: 1.0;
+	borderStyle: solid;
+	borderThickness: 1;
+	borderColor: #000000;
+	roundedCorners:0;
+	color: #CCCCCC;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#dddddd;
+	rollOverColor: #333333;
+	selectionColor: #444444;
+	shadowDistance: 0;
+	useRollOver: true;
+}
+
+.menuBox
+{
+	backgroundColor: #222222;
+	backgroundAlpha: 1.0;
+	borderStyle: solid;
+	borderThickness: 1;
+	borderColor: #000000;
+}
+
+/*
+//------------------------------
+//  MenuBar
+//------------------------------
+*/
+MenuBar
+{
+
+	backgroundSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="MenuBar_backgroundSkin");
+	itemUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="MenuBar_itemUpSkin");
+	itemOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="MenuBar_itemOverSkin");
+	itemDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="MenuBar_itemDownSkin");
+	color: #AAAAAA;
+	backgroundColor:#ffffff;
+	textSelectedColor:#dddddd;
+	textRollOverColor:#ffffff;
+	rollOverColor:#ffffff;
+	menuStyleName: "dropDown";
+	disabledColor: #AAB3B3;
+	fontFamily: ArialEmbedded;
+	backgroundAlpha: 0.7;
+}
+
+
+/*
+//------------------------------
+//  NumericStepper
+//------------------------------
+*/
+NumericStepper
+{
+/* using symbol */
+/* 	downArrowDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperDownArrow_disabledSkin");
+	downArrowDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperDownArrow_downSkin");
+	downArrowOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperDownArrow_overSkin");
+	downArrowUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperDownArrow_upSkin");
+	upArrowDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperUpArrow_disabledSkin");
+	upArrowDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperUpArrow_downSkin");
+	upArrowOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperUpArrow_overSkin");
+	upArrowUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="NumericStepperUpArrow_upSkin"); */
+/* using ClassReference */
+	downArrowDisabledSkin:  ClassReference("com.kingnare.skins.NumericStepper.NumericStepperDownSkin");
+	downArrowDownSkin:  ClassReference("com.kingnare.skins.NumericStepper.NumericStepperDownSkin");
+	downArrowOverSkin: ClassReference("com.kingnare.skins.NumericStepper.NumericStepperDownSkin");
+	downArrowUpSkin:  ClassReference("com.kingnare.skins.NumericStepper.NumericStepperDownSkin");
+	upArrowDisabledSkin: ClassReference("com.kingnare.skins.NumericStepper.NumericStepperUpSkin");
+	upArrowDownSkin: ClassReference("com.kingnare.skins.NumericStepper.NumericStepperUpSkin");
+	upArrowOverSkin: ClassReference("com.kingnare.skins.NumericStepper.NumericStepperUpSkin");
+	upArrowUpSkin: ClassReference("com.kingnare.skins.NumericStepper.NumericStepperUpSkin");
+	
+	cornerRadius:0;
+	borderThickness:1;
+	borderStyle:inset;
+	borderColor:#000000;
+	fontWeight: normal;
+	backgroundColor:#666666;
+	color:#eeeeee;
+	textRollOverColor:#ffffff;
+}
+
+
+/*
+//------------------------------
+//  Panel
+//------------------------------
+*/
+/* Panel without backgroundImage and titleBackgroundSkin. */
+/* 
+{
+	cornerRadius: 2;
+	borderThicknessLeft: 5;
+	borderThicknessRight: 5;
+	color: #DDDDDD;
+	roundedBottomCorners: true;
+	shadowDistance: 1;
+	backgroundColor: #333333;
+	headerHeight: 22;
+	borderAlpha: 0.2;
+} */
+
+.prophetComponentContainerStyle
+{
+	background-color:		#000000;	
+	background-alpha:		0;	
+}
+
+Panel
+{
+	color: #DDDDDD;
+	backgroundColor: #111111;
+
+	cornerRadius: 2;
+	roundedBottomCorners: true;
+	shadowDistance: 1;
+	dropShadowEnabled: true;
+	
+	borderColor: #436e01;
+	borderAlpha: 0.6;
+	borderStyle: solid;
+	borderThickness:1;
+	
+	headerHeight: 20;
+	titleBackgroundSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_titleBackgroundSkin");
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_backgroundImage");
+	/* Panel_SpBackgroundImage */
+	backgroundSize: "100%";
+	titleStyleName: "windowTitle";
+	controlBarStyleName: ControlBar;
+	borderThicknessRight: 0;
+	borderThicknessLeft: 0;
+	borderThicknessBottom: 0;
+	borderThicknessTop: -1;
+}
+
+/* Panel with ControlBar. */
+.PanelWithControlBar
+{
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_SpBackgroundImage");
+}
+.FramelessPanel
+{
+	borderStyle: none;
+	headerHeight: 0;
+	borderAlpha: 0;
+	borderThickness: 0;
+	borderThicknessRight: 0;
+	borderThicknessLeft: 0;
+	borderThicknessBottom: 0;
+	borderThicknessTop: 0;
+	paddingRight: 0;
+	paddingLeft: 0;
+	paddingottom: 0;
+	paddingTop: 4;
+	backgroundAlpha: 0;
+}
+/*
+//------------------------------
+//  PopUpButton
+//------------------------------
+*/
+PopUpButton
+{
+/* using symbol */
+/* 	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_downLeftSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_overLeftSkin");	
+	popUpDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_downRightSkin");
+	popUpOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_overRightSkin");
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_upSkin"); */
+/* using ClassReference */
+	upSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	disabledSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	downSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	overSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	popUpDownSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	popUpOverSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	
+	color: #cccccc;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#ffffff;
+	textDisabledColor: #1e1e1e;
+	fontWeight:normal;
+	arrowButtonWidth:16;
+}
+
+.clearButton
+{
+	fontSize:9;
+	color: #808080;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#ffffff;
+	textDisabledColor: #ffffff;
+	fontWeight: "normal";
+}
+
+/*
+//------------------------------
+//  PopUpMenuButton
+//------------------------------
+*/
+PopUpMenuButton
+{
+/* using symbol */
+/* 	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_downLeftSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_overLeftSkin");	
+	popUpDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_downRightSkin");
+	popUpOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_overRightSkin");
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="PopUpButton_upSkin"); */
+/* using ClassReference */
+	upSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	disabledSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	downSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	overSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	popUpDownSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	popUpOverSkin: ClassReference("com.kingnare.skins.PopUpButton.PopUpButtonSkin");
+	
+	color: #cccccc;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#ffffff;
+	textDisabledColor: #1e1e1e;
+	fontWeight:normal;
+	arrowButtonWidth:16;
+}
+
+/*
+//------------------------------
+//  ProgressBar
+//------------------------------
+*/
+ProgressBar
+{
+	color: #CCCCCC;
+	barColor: #FFFFFF;
+	trackSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ProgressBarTrackSkin");
+	barSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ProgressBarSkin");
+	indeterminateSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ProgressIndeterminateSkin",
+	scaleGridTop="1",
+	scaleGridLeft="1",
+	scaleGridRight="199",
+	scaleGridBottom="5");
+}
+
+
+/*
+//------------------------------
+//  RadioButton
+//------------------------------
+*/
+RadioButton
+{
+	upIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButton_upIcon");
+	selectedDisabledIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButtonSelected_disabledIcon");
+	selectedDownIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButtonSelected_downIcon");
+	selectedOverIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButtonSelected_overIcon");
+	overIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButton_overIcon");
+	downIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButton_downIcon");
+	disabledIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButton_disabledIcon");
+	selectedUpIcon: Embed(source="/kiltech/kiltechstyle.swf", symbol="RadioButtonSelected_upIcon");
+}
+
+
+/*
+//------------------------------
+//  RichTextEditor
+//------------------------------
+*/
+RichTextEditor
+{
+	/* borderColor: #333333;
+	borderAlpha: 1.0;
+	cornerRadius: 2; */
+}
+
+
+
+/*
+//------------------------------
+//  TabBar
+//------------------------------
+*/
+TabBar
+{
+	firstButtonStyleName: "tabStyle";
+	firstTabStyleName: "tabStyle";
+	tabStyleName: "tabStyle";
+	buttonStyleName: "tabStyle";
+	lastButtonStyleName: "tabStyle";
+	lastTabStyleName: "tabStyle";
+	selectedTabTextStyleName: "selectedTabText";
+	color: #aaaaaa;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#CCCCCC;
+	disabledColor:#111111;
+}
+.tabStyle 
+{
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_downSkin"); 
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_overSkin"); 
+	selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_disabledSkin");
+	selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin");
+	selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin");  
+	selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin"); 
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_upSkin"); 
+	color:#aaaaaa;
+	textRollOverColor:#ffffff;
+	textSelectedColor:#ffffff;
+}
+.selectedTabText 
+{
+	color: #ffffff;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#aaaaaa;
+	disabledColor:#111111;
+}
+
+SuperTab
+{
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_downSkin"); 
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_overSkin"); 
+	selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_disabledSkin");
+	selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin");
+	selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin");  
+	selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin"); 
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_upSkin"); 
+	color:#aaaaaa;
+	textRollOverColor:#ffffff;
+	textSelectedColor:#ffffff;
+	tabCloseButtonStyleName: "tabCloseButtonStyle";
+	paddingLeft:	2;
+}
+.tabCloseButtonStyle
+{
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_closeButtonUpSkin");
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_closeButtonOverSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_closeButtonDownSkin");
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Panel_closeButtonDisabledSkin");
+}
+/*
+//------------------------------
+//  TabNavigator
+//------------------------------
+*/
+TabNavigator
+{
+	borderStyle:solid;
+	borderColor:#101010;
+	borderThickness:1;
+	backgroundColor:#333333;
+	backgroundAlpha:0;
+	fontWeight:normal;
+	color: #AAAAAA;
+	textRollOverColor: #ffffff;
+	textSelectedColor:#444444;
+	disabledColor:#111111;
+	paddingTop: 0;
+}
+SuperTabNavigator.dockableTabNavigatorNoTab
+{
+	paddingTop: 1;
+	tabHeight: 0;
+	borderThickness:0;
+}
+DocumentNavigator
+{
+	modeButtonWidth: 32;
+	modeButtonHeight:28;
+}
+Tab
+{
+	disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_disabledSkin");
+	downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_downSkin"); 
+	overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_overSkin"); 
+	selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_disabledSkin");
+	selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin");
+	selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin");  
+	selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TabSelected_upSkin"); 
+	upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="Tab_upSkin"); 
+	color:#aaaaaa;
+	textRollOverColor:#ffffff;
+	textSelectedColor:#ffffff;
+	paddingLeft:	2;
+}
+
+Button.documentNavigatorModeButton
+{
+	icon: Embed("/assets/cards.png");
+	selectedOverIcon: Embed("/assets/card.png");
+	selectedUpIcon: Embed("/assets/card.png");
+	selectedDownIcon: Embed("/assets/card.png");
+	
+	selectedUpSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_upSkin');
+	selectedOverSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_overSkin');
+	selectedDownSkin: Embed(source='/kiltech/kiltechstyle.swf', symbol='Button_downSkin');
+}
+Button.dataTreesNavigatorModeButton
+{
+	upSkin: Embed("/assets/synchronize_icon_off.png");
+	overSkin: Embed("/assets/synchronize_icon_off.png");
+	downSkin: Embed("/assets/synchronize_icon_off.png");
+
+	selectedUpSkin: Embed("/assets/synchronize_icon.png");
+	selectedOverSkin: Embed("/assets/synchronize_icon.png");
+	selectedDownSkin: Embed("/assets/synchronize_icon.png");
+}
+Button.nodeDataListRefreshButton
+{
+	upSkin: Embed("/assets/refresh.png");
+	overSkin: Embed("/assets/refresh_highlight.png");
+	downSkin: Embed("/assets/refresh.png");
+}
+/*
+//------------------------------
+//  TextArea
+//------------------------------
+*/
+TextArea
+{
+	color: #FFFFFF;
+	borderColor: #000000;
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TextAreaBackground");
+	backgroundAlpha: 1.0; 
+}
+
+
+/*
+//------------------------------
+//  TextInput
+//------------------------------
+*/
+TextInput
+{
+	backgroundAlpha: 1.0;
+	borderColor: #B7BABC;
+	color: #FFFFFF;
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TextInput_borderSkin");
+	borderStyle: none;
+	paddingTop: 2;
+	
+}
+
+
+/*
+//------------------------------
+//  TitleWindow
+//------------------------------
+*/
+TitleWindow
+{
+	closeButtonDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Panel_closeButtonDisabledSkin");
+	closeButtonDownSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Panel_closeButtonDownSkin");
+	closeButtonOverSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Panel_closeButtonOverSkin");
+	closeButtonUpSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Panel_closeButtonUpSkin");
+	titleStyleName: "windowTitle";
+	cornerRadius:2;
+	backgroundColor: #111111;
+	borderThickness:2;
+	controlBarStyleName: "windowControlBar";
+	borderStyle: solid; 
+}
+.windowTitle
+{
+	verticalAlign:middle; 
+}
+.windowControlBar
+{
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf",symbol="ApplicationControlBar_BackgroundSkin");
+	backgroundSize:"100%";
+	horizontal-align: center;
+}
+
+
+/*
+//------------------------------
+//  ToggleButtonBar
+//------------------------------
+*/
+ToggleButtonBar 
+{ 
+        buttonStyleName: "middleButtonBarButton"; 
+        firstButtonStyleName: "firstButtonBarButton";
+        lastButtonStyleName: "lastButtonBarButton";
+}
+.firstButtonBarButton 
+{ 
+        disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstDisabledSkin"); 
+        downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstDownSkin"); 
+        overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstOverSkin"); 
+        selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstSelectedDisabledSkin"); 
+        selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstSelectedUpSkin"); 
+        selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstSelectedUpSkin");
+        selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstSelectedUpSkin");
+        upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_firstUpSkin");
+        color: #aaaaaa;
+		textRollOverColor: #ffffff;
+		textSelectedColor: #ffffff;
+		disabledColor:#444444;
+}
+.middleButtonBarButton 
+{ 
+        disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonDisabledSkin"); 
+        downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonDownSkin"); 
+        overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonOverSkin"); 
+        selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonSelectedDisabledSkin"); 
+        selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonSelectedUpSkin"); 
+        selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonSelectedUpSkin");
+        selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonSelectedUpSkin");
+        upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_buttonUpSkin");
+        color: #aaaaaa;
+		textRollOverColor: #ffffff;
+		textSelectedColor: #ffffff;
+		disabledColor:#444444;
+}
+.lastButtonBarButton 
+{ 
+        disabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastDisabledSkin"); 
+        downSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastDownSkin"); 
+        overSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastOverSkin"); 
+        selectedDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastSelectedDisabledSkin"); 
+        selectedDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastSelectedUpSkin"); 
+        selectedOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastSelectedUpSkin");
+        selectedUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastSelectedUpSkin");
+        upSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ButtonBar_lastUpSkin");
+        color: #aaaaaa;
+		textRollOverColor: #ffffff;
+		textSelectedColor: #ffffff;
+		disabledColor:#444444; 
+}
+
+
+/*
+
+
+
+/*
+//------------------------------
+//  Tree
+//------------------------------
+*/
+Tree
+{
+	backgroundColor: #101010;
+	borderThickness: 0;
+	defaultLeafIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Tree_defaultLeafIcon");
+	disclosureClosedIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Tree_disclosureClosedIcon");
+	disclosureOpenIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Tree_disclosureOpenIcon");
+	folderClosedIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Tree_folderClosedIcon");
+	folderOpenIcon: Embed(source="/kiltech/kiltechstyle.swf",symbol="Tree_folderOpenIcon");
+	useRollOver: false;
+	/* borderSkin: Embed(source="/kiltech/kiltechstyle.swf",symbol="Tree_borderSkin");  */
+	dropIndicatorSkinColor: #DDDDDD;
+}
+ProphetTree
+{
+	loadingIcon:			Embed(source="/style/assets/assets.swf", symbol="loading_icon");
+}
+ProphetDocumentTree
+{
+	loadingIcon:			Embed(source="/style/assets/assets.swf", symbol="loading_icon");
+}
+/*
+//------------------------------
+//  VDividedBox
+//------------------------------
+*/
+VDividedBox
+{
+	dividerSkin: ClassReference("mx.core.BitmapAsset");
+	/*dividerSkin: ClassReference("com.kingnare.skins.NumericStepper.NumericStepperDownSkin");*/
+	verticalDividerCursor: Embed(source="/kiltech/kiltechstyle.swf",symbol="DividedBox_verticalCursor");
+	dividerColor: #000000;
+	verticalGap: 4;
+	verticalAlign: top;
+}
+
+
+/*
+//------------------------------
+//  VRule
+//------------------------------
+*/
+VRule
+{
+	strokeColor: #000000;
+	shadowColor: #CCCCCC;
+	strokeWidth: 1;
+}
+
+
+
+
+
+/*
+//------------------------------
+//  VSlider
+//------------------------------
+*/
+VSlider
+{
+	trackSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderTrack_Skin");
+	showTrackHighlight: true;
+	thumbUpSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_upSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	thumbOverSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_overSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	thumbDownSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_downSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	thumbDisabledSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderThumb_disabledSkin",scaleGridBottom="10",scaleGridLeft="1",scaleGridTop="1",scaleGridRight="10");
+	trackHighlightSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="SliderHighlight_Skin");
+	dataTipOffset: 5;
+}
+
+/*
+//------------------------------
+//  bg
+//------------------------------
+*/
+.bgSkin
+{
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="ApplicationControlBar_BackgroundSkin");
+}
+.bgGreenSkin
+{
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="GreenBackgroundSkin");
+}
+.bgRedSkin
+{
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="RedBackgroundSkin");
+}
+.textBorder
+{
+	borderSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="TextInput_borderSkin"); 
+}
+
+/* AIR Part Test*/
+Window
+{
+	 statusBarBackgroundColor:#C0C0C0;
+}
+
+
+ToolTip
+{
+	color: #FFFFFF;
+	backgroundColor: 0;
+	paddingLeft: 10;
+	paddingRight: 10;
+	offSetY: 10;
+    background-alpha:       0.85;
+    borderSkin:             ClassReference("nl.fxc.skins.FXCToolTip");
+}
+
+ClosablePanel 
+{
+	closeButtonStyleName: "closeButton";
+	maxButtonStyleName: "maxButton";
+	minButtonStyleName: "minButton";
+	menuButtonStyleName: "menuButton";
+	selectionColor: #63a21a;
+}
+.closeButton 
+{ 
+        downSkin:	Embed("/assets/panels/close_down.png");
+        overSkin:	Embed("/assets/panels/close_over.png");
+        upSkin: 	Embed("/assets/panels/close.png");
+}
+.maxButton 
+{ 
+        downSkin:	Embed("/assets/panels/max_down.png");
+        overSkin:	Embed("/assets/panels/max_over.png");
+        upSkin: 	Embed("/assets/panels/max.png");
+}
+.minButton 
+{ 
+        downSkin:	Embed("/assets/panels/min_down.png");
+        overSkin:	Embed("/assets/panels/min_over.png");
+        upSkin: 	Embed("/assets/panels/min.png");
+}
+.menuButton 
+{ 
+        downSkin:	Embed("/assets/panels/menu_down.png");
+        overSkin:	Embed("/assets/panels/menu_over.png");
+        upSkin: 	Embed("/assets/panels/menu.png");
+}
+.dockButton 
+{ 
+        downSkin:	Embed("/assets/panels/dock_down.png");
+        overSkin:	Embed("/assets/panels/dock_over.png");
+        upSkin: 	Embed("/assets/panels/dock.png");
+}
+
+MaximuPanel
+{
+	maxButtonStyleName: "dockButton";
+}
+
+CollapsedPanel
+{
+	minButtonStyleName: "dockButton";
+	collapseWidth: 20;
+	collapseHeight: 22;
+}
+.VerticalCollapsedPanel
+{
+	titleBackgroundSkin: Embed(source="/kiltech/kiltechstyle.swf", symbol="CollapsedPanel_VerticalHeadSkin");
+	backgroundImage: Embed(source="/kiltech/kiltechstyle.swf", symbol="CollapsedPanel_VerticalBodySkin");
+}
+RendererComponentEditor
+{
+	backgroundAlpha: 0.9;
+	backgroundColor: #101010;
+}
+GridSettingsDialog
+{
+	backgroundColor: #101010;
+}
+TitleHBox
+{
+	verticalAlign: middle;
+	horizontalAlign: right;
+	horizontalGap: 2;
+	paddingLeft: 2;
+	paddingRight: 2;
+	paddingTop: 2;
+	backgroundColor: #FFFFFF;
+	backgroundAlpha: 0.05;
+}
+.FramelessTitle
+{
+	backgroundColor: #555555;
+	backgroundAlpha: 0.7;
+}
+BaseHint
+{
+	hintColorIn: #6BE009;
+	hintColorOut: #000000;
+	hintAlpha: 0.5;
+	hintRadius: 4;
+}
+DividerHint
+{
+	backgroundColor: #7FC82B;
+	backgroundAlpha: 0.6;	
+}
+AnimationAsset
+{
+	defaultBackgroundColor: #3C3C3C;
+}
+
+/*
+----------------------------------------------
+  Prophet Buttons
+----------------------------------------------
+*/
+
+ProphetKioskButton.kioskPlayButton
+{
+	up-skin: Embed(source="/assets/play_32_hot.png");
+	down-skin: Embed(source="/assets/play_32_hot.png");
+	over-skin: Embed(source="/assets/play_32.png");
+	skin: Embed(source="/assets/play_32_hot.png");
+	popUpDownSkin: Embed(source="/assets/play_32_hot.png"); 
+	popUpOverSkin: Embed(source="/assets/play_32.png");
+}
+
+ProphetBuilderButton.prophetBuilderButton
+{
+	up-skin: Embed(source="/assets/wizard_32.png"); 
+	down-skin: Embed(source="/assets/wizard_32.png");
+	over-skin: Embed(source="/assets/wizard_32_hot.png");
+	skin: Embed(source="/assets/wizard_32.png");
+	popUpDownSkin: Embed(source="/assets/wizard_32.png");
+	popUpOverSkin: Embed(source="/assets/wizard_32_hot.png");
+}
+
+ProphetBuilderButton2.prophetBuilderButton2
+{
+	up-skin: Embed(source="/assets/product_finished_32.png"); 
+	down-skin: Embed(source="/assets/product_finished_32.png");
+	over-skin: Embed(source="/assets/product_finished_32_hot.png");
+
+	selected-up-skin: Embed(source="/assets/product_in_proccess_32.png");
+	selected-down-skin: Embed(source="/assets/product_finished_32.png");
+	selected-over-skin: Embed(source="/assets/product_in_proccess_32_hot.png");
+}
+
+ProphetStarButton.prophetStarButton
+{
+	up-skin: Embed(source="/assets/star_32.png");
+	down-skin: Embed(source="/assets/star_32.png");
+	over-skin: Embed(source="/assets/star_32_hot.png");
+	skin: Embed(source="/assets/star_32.png");
+	popUpDownSkin: Embed(source="/assets/star_32.png");
+	popUpOverSkin: Embed(source="/assets/star_32_hot.png");	
+}	
+
+ProphetUserButton.prophetUserButton
+{
+	up-skin: Embed(source="/assets/user_32.png");
+	down-skin: Embed(source="/assets/user_32.png");
+	over-skin: Embed(source="/assets/user_32_hot.png"); 
+	skin: Embed(source="/assets/user_32.png");
+	popUpDownSkin: Embed(source="/assets/user_32.png");
+	popUpOverSkin: Embed(source="/assets/user_32_hot.png");
+}
+
+TabComponent2
+{
+	selectedFillColors: #AAFF55, #558811, #AAFF55, #AAFF55;	 
+	selectedFillAlphas: 1, 0.9, 0.5, 0.5;
+	normalFillColors: #AAFF55, #AAFF55, #AAFF55, #AAFF55;	 
+	normalFillAlphas: 0.5, 0.5, 0.5, 0.5;
+	
+	normalTextColor: #EEEEEE; 	 
+	selectedTextColor: #FFFFFF;
+		 
+	normalTextShadowColor: #558811;
+	selectedTextShadowColor: #558811;
+}
+
+ProphetUserNavigationFrame
+{
+	logo: Embed(source="/assets/ProphetIcons/Logo_Prophet_Bbg_42px.png");
+	webLogo: Embed(source="/assets/ProphetIcons/Providedby_Bbg_42px.png");
+}	
+
+ProphetUserNavigationFrame.kioskButton
+{
+	up-skin: Embed(source="/assets/pause_32_hot.png");
+	over-skin: Embed(source="/assets/pause_32.png");
+	down-skin: Embed(source="/assets/pause_32_hot.png");	
+}	
+
+/*
+----------------------------------------------
+  Prophet Absolute layout 
+----------------------------------------------
+*/
+
+DGAbsoluteLayoutContainer
+{
+	panel-background-alpha: 0;
+
+	/* This border will be permanently visible in the edit mode*/
+	container-border-alpha: 0.4; 	
+	container-border-color: #FFFFFF;
+	component-border-alpha: 0; 	
+	component-border-color: #FFFFFF;
+
+	/* This styles are applied only when object is selected */
+	container-selected-border-alpha: 1; 	
+	container-selected-border-color: #999999;
+	
+	component-selected-border-alpha: 1; 	
+	component-selected-border-color: #999999;
+	
+	
+	selection-handle-size: 8;
+
+	/* handle - normal state */
+	selection-handle-border-width: 1;
+	selection-handle-border-color: #000000;
+	selection-handle-border-alpha: 0.8;
+	selection-handle-background-color: #FFFFFF;
+	selection-handle-background-alpha: 0.6;
+	
+	/* handle - mouse over state */
+	selection-handle-hover-border-width: 2;
+	selection-handle-hover-border-color: #000000;
+	selection-handle-hover-border-alpha: 1;
+	selection-handle-hover-background-color: #FFFFFF;
+	selection-handle-hover-background-alpha: 0.8;
+}
+
+DGAbsoluteLayoutPanel
+{
+	background-alpha: 0;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+//
+// Text controls selection color
+//
+/////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*
+	Some comments.
+	Affects BTextInput and BTextArea from PropertyInspectorLib.swc.
+	Here we can set two colors for selection but using the filter is bad
+	because it affects fonts look and it works not very well, so 
+	we shouldn`t use when we haven`t to. 
+	With the dark skin we have to use it.   
+*/
+
+/* Styles for text selection */
+.globalSelectionColors
+{
+	useFilter: true;
+	selectionRectColor: #FFFFFF;
+	selectedTextColor: 0;		
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+//
+// Property inspector styles
+//
+/////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* 
+	This is main PI container style (PropertyInspectorAccordionBox).
+	It has two elements:
+	  * caption or header (accordionBoxHeader style).
+	  * accordion         (propertyInspectorAccordion style).  
+
+	In the prophet application header is switched off, so I removed all header styles.
+*/
+.rootBox
+{
+   borderAlpha: 0.5;
+   borderThickness: 0;
+   cornerRadius: 4;
+   backgroundColor: #111111;
+   dropShadowEnabled: true;
+   shadowDirection: right;
+   padding-right:3;
+   padding-bottom:3;
+}
+
+
+/* Accordion styles */
+.propertyInspectorAccordion
+{
+	borderStyle:solid;
+	borderColor:#000000;
+	borderThickness:1;
+	fontWeight:normal;
+	color: #aaaaaa;
+	textRollOverColor: #FFFFFF;
+	textSelectedColor:#FFFFFF;
+	disabledColor:#5A5A5A;
+	backgroundColor: #505050;
+	/*backgroundImage: Embed(source="kingnarestyle.swf", symbol="Global_Bg");
+	backgroundSize:"100%";*/
+}
+
+/*//////////////////////////////////////////
+// PI line styles
+///////////////////////////////////////////*/
+
+/* Line in the PI (normal state) */
+.line
+{
+    padding-top: 1;
+    padding-bottom: 1;
+    padding-left: 2;
+    padding-right: 2;
+    horizontal-gap: 3;
+    
+	cornerRadius:8;
+	border-style:none;
+	color: #FFFFFF;		
+	verticalAlign: middle;
+}
+
+
+/* Line in the PI (selected state) */
+/*
+.selectedLine
+{
+    padding-top: 2;
+    padding-bottom: 1;
+    padding-left: 3;
+    padding-right: 2;
+    horizontal-gap: 3;
+
+   borderStyle: solid;
+   borderColor: #6BE009; 
+   borderThickness: 0;
+   border-alpha: 0.5;
+   backgroundAlpha: 0.15;
+   backgroundColor: #6BE009;
+   dropShadowEnabled: true;
+   shadowDirection: right;	
+   verticalAlign: middle;	
+}
+*/
+
+/* 
+	In the PI line normally two components:
+	  - label 
+      - editor
+    Corresponding styles given bellow.	
+*/
+.labelText {
+	fontSize: 10;
+	color: #FFFFFF;		
+	fontWeight: bold;
+}
+
+/* Editor in the line */
+.editorText
+{
+	cornerRadius:5;
+	border-style:solid;
+	border-width:2;
+	textAlign: left;
+	fontSize: 10;
+	color: #FFFFFF;
+	textColor: #FFFFFF;
+}
+
+BTextInput
+{
+	color: #FFFFFF;
+	textColor: #FFFFFF; /* This color is used to restore initial text color when filter is used to change selection color */
+}
+
+BTextArea
+{
+	color: #FFFFFF;
+	textColor: #FFFFFF; /* This color is used to restore initial text color when filter is used to change selection color */
+}
+
+/*/////////////////////////////////////
+// Prophet specific editors styles
+/////////////////////////////////////*/
+
+AdvancedFillEditor
+{
+	background-alpha: 1;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+DataDefinitionEditor
+{
+	background-alpha: 1;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+NanNumberEditor
+{
+	background-alpha: 1;
+	background-color: #000000;
+	textColor: #FFFFFF;
+}
+
+ProphetRollupPickerEditor
+{
+	fontSize: 10;
+	color: #FFFFFF;		
+	background-alpha: 1;
+	background-color: #000000;
+	padding-left: 5;
+}
+
+ProphetTimeRangePickerEditor
+{
+	fontSize: 10;
+	color: #FFFFFF;		
+	background-alpha: 1;
+	background-color: #000000;
+	padding-left: 5;
+}
+
+TimePicker
+{
+	background-alpha: 0;
+	background-disabled-color: 0;
+}
+
+ProphetIntervalPickerEditor
+{
+	fontSize: 10;
+	color: #FFFFFF;		
+	background-alpha: 1;
+	background-color: #000000;
+	padding-left: 5;
+}
+
+HRuleEditor
+{
+	stroke-color: #FFFFFF;
+	shadow-color: #999999;
+}	
+
+LabelEditor
+{
+	font-weight: bold;
+	color: #7FC82B;
+	text-align: center;
+}
+
+.propertyInspectorHelpTooltip
+{
+	background-alpha: 0.8;
+	background-color: 0;
+	border-color: #3474B0;
+	color: #7FC82B;
+	padding-left: 4;
+	padding-right: 4;
+	padding-top: 4;
+	padding-bottom: 4;
+	font-family: "ArialEmbedded";	
+	font-size: 10;
+}
+
+IFrameEditor
+{
+	default-html-border-color: #333333;
+	highlighted-html-border-color: #FF0000;
+	verticalGap: 6; 
+	backgroundColor: #000000;
+	backgroundAlpha: 1;	
+}
+
+AutoLoginEditor
+{
+	verticalGap: 3;
+	borderStyle: none; 
+	backgroundAlpha: 0; /* use color of the IFrameEditor */
+}
+
+
+DGAbsoluteZoomControl.sortBarBg
+{
+	backgroundImage: Embed(source="/style/darkroom.swf", symbol="sortBarBg");
+	backgroundSize: "100%";
+	borderStyle:none;
+}
+
+.expandableGroupCaptionHRule
+{
+	stroke-width: 2;
+	stroke-color: #314b08;
+	shadow-color: #314b08;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+//
+// Chart styles
+//
+/////////////////////////////////////////////////////////////////////////////////////////*/
+
+CartesianChartZoomer
+{
+	rectColor: #6BE009;
+	rectAlpha: 0.1;
+	lineColor: #000000;
+}
+
+/*AxisRenderer
+{
+	tick-placement: "cross";
+	label-gap: 1;
+	label-align: "center";
+	tick-length: 4;
+}*/
+PropertyDragBox
+{
+	linkColorInside:  #000000;
+	linkColorOutside: #00FF00;
+	linkAlphaInside:  1;
+	linkAlphaOutside: 0.5;
+	linkWidthInside:  3;
+	linkWidthOutside: 6;
+}
+
+ButtonScrollingCanvas
+{
+	leftButtonStyleName: "leftScrollButton";
+	rightButtonStyleName: "rightScrollButton";
+}
+
+Button.leftScrollButton
+{
+	icon: Embed("/assets/whiteSmallArrowLeft.png");
+	
+	fillColors: #444444,#333333, #84939A,#355261;
+	fillAlphas: 0.7, 0.7, 1, 1;	
+	themeColor: #AAAAAA;
+	borderColor: #000000;
+	upSkin:		ClassReference("mx.skins.halo.ButtonSkin");
+	overSkin:	ClassReference("mx.skins.halo.ButtonSkin");
+	downSkin:	ClassReference("mx.skins.halo.ButtonSkin");
+}
+Button.rightScrollButton
+{
+	icon: Embed("/assets/whiteSmallArrowRight.png");
+	
+	fillColors: #444444,#333333, #84939A,#355261;
+	fillAlphas: 0.7, 0.7, 1, 1;	
+	themeColor: #AAAAAA;
+	borderColor: #000000;
+	upSkin:		ClassReference("mx.skins.halo.ButtonSkin");
+	overSkin:	ClassReference("mx.skins.halo.ButtonSkin");
+	downSkin:	ClassReference("mx.skins.halo.ButtonSkin");
+}

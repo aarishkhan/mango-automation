@@ -1,0 +1,150 @@
+<%--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+--%><%@ include file="/WEB-INF/jsp/include/tech.jsp" %>
+<%@page import="com.serotonin.bacnet4j.type.enumerated.ObjectType"%>
+
+<script type="text/javascript" src="${modulePath}/web/bacnet.js"></script>
+<script type="text/javascript">
+  bndwr = BACnetMSTPEditDwr;
+  <jsp:include page="bacnet.jspf"/>
+
+  function sendBACnetWhoIs() {
+      bndwr.sendBACnetMstpWhoIs($get("deviceId"), $get("commPortId"), $get("baudRate"), $get("thisStation"),
+              $get("retryCount"), $get("timeout"), $get("segTimeout"), $get("segWindow"), $get("retries"),
+              $get("maxReadMultipleReferencesSegmented"), $get("maxReadMultipleReferencesNonsegmented"), sendWhoIsCB);
+  }
+  
+  function sendObjectListRequest(cb) {
+      bndwr.sendMstpObjectListRequest($get("deviceId"), $get("commPortId"), $get("baudRate"), $get("thisStation"),
+              $get("retryCount"), $get("timeout"), $get("segTimeout"), $get("segWindow"), $get("retries"),
+              $get("maxReadMultipleReferencesSegmented"), $get("maxReadMultipleReferencesNonsegmented"),
+              $get("objListNetNumber"), $get("objListMac"), $get("objListLink"), $get("objListDevId"), cb);
+  }
+  
+  function saveDataSourceImpl(basic) {
+      cancelWhoIs();
+      bndwr.saveBACnetMstpDataSource(basic, $get("updatePeriods"), $get("updatePeriodType"), $get("deviceId"),
+              $get("commPortId"), $get("baudRate"), $get("thisStation"), $get("retryCount"), $get("strict"),
+              $get("timeout"), $get("segTimeout"), $get("segWindow"), $get("retries"), 
+              $get("covSubscriptionTimeoutMinutes"), $get("maxReadMultipleReferencesSegmented"),
+              $get("maxReadMultipleReferencesNonsegmented"), saveDataSourceCB);
+  }
+  
+  function saveBACnetPointLocator(id, xid, name, locator, cb) {
+      bndwr.saveBACnetMSTPPointLocator(id, xid, name, locator, savePointCB);
+  }
+</script>
+    
+<tag:dataSourceAttrs descriptionKey="mod.bacnetMstp.desc" helpId="bacnetMstpDS">
+  <jsp:attribute name="extraPanels">
+    <jsp:include page="discovery.jspf">
+      <jsp:param name="linkKey" value="mod.bacnetMstp.remoteDeviceLinkStation"/>
+    </jsp:include>    
+  </jsp:attribute>
+  
+  <jsp:body>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="dsEdit.updatePeriod"/></td>
+      <td class="formField">
+        <input type="text" id="updatePeriods" value="${dataSource.updatePeriods}" class="formShort"/>
+        <tag:timePeriods id="updatePeriodType" value="${dataSource.updatePeriodType}" s="true" min="true" h="true"/>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.deviceId"/></td>
+      <td class="formField"><input id="deviceId" type="text" value="${dataSource.deviceId}"/></td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.commPortId"/></td>
+      <td class="formField">
+        <c:choose>
+          <c:when test="${!empty commPortError}">
+            <input id="commPortId" type="hidden" value=""/>
+            <span class="formError">${commPortError}</span>
+          </c:when>
+          <c:otherwise>
+              <sst:select id="commPortId" value="${dataSource.commPortId}">
+              <c:forEach items="${commPorts}" var="port">
+                <sst:option value="${port.name}">${port.name}</sst:option>
+              </c:forEach>
+            </sst:select>
+          </c:otherwise>
+        </c:choose>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.baudRate"/></td>
+      <td class="formField">
+        <sst:select id="baudRate" value="${dataSource.baudRate}">
+          <sst:option>110</sst:option>
+          <sst:option>300</sst:option>
+          <sst:option>1200</sst:option>
+          <sst:option>2400</sst:option>
+          <sst:option>4800</sst:option>
+          <sst:option>9600</sst:option>
+          <sst:option>19200</sst:option>
+          <sst:option>38400</sst:option>
+          <sst:option>57600</sst:option>
+          <sst:option>76800</sst:option>
+          <sst:option>115200</sst:option>
+          <sst:option>230400</sst:option>
+          <sst:option>460800</sst:option>
+          <sst:option>921600</sst:option>
+        </sst:select>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.thisStation"/></td>
+      <td class="formField"><input id="thisStation" type="text" value="${dataSource.thisStation}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnetMstp.retryCount"/></td>
+      <td class="formField"><input id="retryCount" type="text" value="${dataSource.retryCount}"/></td>
+    </tr>
+    
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.strict"/></td>
+      <td class="formField"><sst:checkbox id="strict" selectedValue="${dataSource.strict}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.timeout"/></td>
+      <td class="formField"><input id="timeout" type="text" value="${dataSource.timeout}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.segmentTimeout"/></td>
+      <td class="formField"><input id="segTimeout" type="text" value="${dataSource.segTimeout}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.segmentWindow"/></td>
+      <td class="formField"><input id="segWindow" type="text" value="${dataSource.segWindow}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.retries"/></td>
+      <td class="formField"><input id="retries" type="text" value="${dataSource.retries}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.covLease"/></td>
+      <td class="formField"><input id="covSubscriptionTimeoutMinutes" type="text" 
+              value="${dataSource.covSubscriptionTimeoutMinutes}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.maxReadMultSeg"/></td>
+      <td class="formField"><input id="maxReadMultipleReferencesSegmented" type="text" 
+              value="${dataSource.maxReadMultipleReferencesSegmented}"/></td>
+    </tr>
+    <tr>
+      <td class="formLabelRequired"><fmt:message key="mod.bacnet.maxReadMultNonseg"/></td>
+      <td class="formField"><input id="maxReadMultipleReferencesNonsegmented" type="text" 
+              value="${dataSource.maxReadMultipleReferencesNonsegmented}"/></td>
+    </tr>
+  </jsp:body>
+</tag:dataSourceAttrs>
+
+<jsp:include page="points.jspf">
+  <jsp:param name="linkKey" value="mod.bacnetMstp.remoteDeviceLinkStation"/>
+</jsp:include>

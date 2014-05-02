@@ -1,0 +1,16 @@
+*Version 1.2.1
+* Allowing point add filter to remain open to add multiple points 
+
+*Version 1.2.0
+* Replaced RXTX Dependency with JSSC
+* Upgraded modbus4j for version compatible with JSSC
+* Core 2.2
+
+*Version 1.0.0
+* Publish points and allow incoming messages to change point values
+* Modbus TCP/IP only supported
+
+*Beta Release
+- This is a sample test utility to create a Modbus Slave that Mango can communicate with.
+- TcpMaster must be run as root to open port 502 because it is below port 1024
+

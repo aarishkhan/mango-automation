@@ -1,0 +1,32 @@
+*Version 1.4.3*
+* Allowing point add filter to remain open to add multiple points 
+
+*Version 1.4.2*
+* Updated for Core 2.2
+* Added convenience data source for JSON objects in HTTP messages.
+
+*Version 1.4.1*
+
+* Performance improvement: reuse the HttpClient object between polls
+
+
+*Version 1.4.0*
+
+* Updated to work with core 2.0
+* HTTP components upgrade
+* Improved ISO date format handling
+* Dojo upgrade
+* Added ability to set point values in receiver and retriever
+
+
+*Version 1.3.0*
+
+* Fixed bug where HTTP epilogue was used where prologue should have been
+* Allow polls to be quantized
+* Changes to support core 1.3.0
+* * Initialization bug fix
+
+
+*Version 1.0.0*
+
+Initial production release

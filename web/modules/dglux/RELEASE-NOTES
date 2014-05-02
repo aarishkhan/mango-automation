@@ -1,0 +1,49 @@
+*Version 1.0.8*
+* Added transpose keyword to real-time queries.  putting transpose at the start of an SQL statement will transpose the results so that the returned columns are rows and rows are columns.
+* cleaned up real-time query system to capture and return errors more reliably
+
+*Version 1.0.7*
+* Updated for Core 2.2
+
+*Version 1.0.6*
+* Added realtime Query API to query the realtime DB that is now available in DGLux.
+* Updated DGLux.swf file to version 13133
+
+*Version 1.0.5*
+* Now DGLux is the default page even if the session is active when you set the default login property
+
+
+*Version 1.0.4*
+
+* Updated DGLux web assets 
+* Use MA instance id as DGLux product id
+* Fixed unit in data request for binary and alphanumeric data types
+* Created default URIs when DGLux module is loaded
+* Session servlet changed to stream output.
+* Web directory is persisted between module upgrades
+* Prevent the DGLux toolbar icon from being displayed inside the DGLux frame
+
+
+*Version 1.0.3*
+
+* Fix for public views
+* Performance improvement: Streaming of XML data to the UI
+* Performance improvement: Prevent database hits on GetValue calls 
+
+
+*Version 1.0.2*
+
+* Updated dglux.swf file to revision 10692
+* Fixed Data Action Behavior bug
+* Fixed Binding from User Name bug
+
+
+*Version 1.0.1*
+
+* Added login page directly from DGLux
+* Added debug logging messages for invalid data requests
+
+
+*Version 1.0.0*
+
+* Initial release

@@ -1,0 +1,30 @@
+*Version 1.5.3*
+
+* Core 2.2
+
+*Version 1.5.2*
+
+*Fixed bug with data source page on version 2.1
+
+*Version 1.5.1*
+
+* Updated to work with core 2.1
+
+*Release notes for version 1.5.0*
+
+* j-interop and openscada-opc libs updated
+* Module rewrited and some dependencies removed
+
+*Release notes for version 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Release notes for version 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Release notes for version 1.0.0*
+
+Initial production release

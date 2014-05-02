@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2014 Infinite Automation Systems Inc. All rights reserved.
+    @author Matthew Lohbihler
+-->
+
+<doxManifest>
+  <item id="jmxDS" key="dox.jmxDS" filename="jmxDS.htm">
+    <relation id="jmxPP"/>
+  </item>
+  
+  <item id="jmxPP" key="dox.jmxPP" filename="jmxPP.htm">
+    <relation id="jmxDS"/>
+  </item>
+</doxManifest>

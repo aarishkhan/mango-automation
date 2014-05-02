@@ -1,0 +1,35 @@
+.rowBoot:before, .rowBoot:after{
+    content: none;
+}
+table{
+    border-collapse:separate;
+    border-spacing: 2px;
+}
+.no-margin-left-right{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.no-padding-left-right{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.rowBoot td, .smRow td {
+
+}
+.anti-row{
+
+}
+.container{
+    width: 100%;
+    margin-top: 10px;
+}
+.table-grey td,.table-grey td{
+    background-color: #F0F0F0;
+}
+#alarmToaster{
+
+}
+.no-padding{
+    padding: 1px;
+}
+

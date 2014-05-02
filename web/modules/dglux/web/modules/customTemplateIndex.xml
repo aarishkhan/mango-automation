@@ -1,0 +1,5 @@
+<root>
+  <group label="Rounded Template" ord="file:!modules/Rounded Template.pwt"/>
+  <group label="Glossy Template" ord="file:!modules/Glossy Template.pwt"/>
+  <group label="My Templates" ord="file:!modules/My Templates.pwt"/>
+</root>

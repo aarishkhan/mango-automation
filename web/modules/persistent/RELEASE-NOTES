@@ -1,0 +1,36 @@
+*Release notes for 1.4.3*
+* Allowing point add filter to remain open to add multiple points 
+
+
+*Release notes for 1.4.2*
+* Core 2.2
+* Made cron pattern for sync fully custom
+* Changed the name to Mango Persistent TCP
+
+*Release notes for 1.4.1*
+
+* Improved point sync processing
+* Additional process logging statements
+* Updated to work with core 2.1
+
+
+*Release notes for 1.4.0*
+
+* Ported changes from Mango M2M
+* Updated to work with core 2.0
+
+
+*Release notes for 1.3.0*
+
+* Added packet send rate information
+* Updated to work with core 1.3
+
+
+*Release notes for 1.1.0*
+
+* Added packet send rate informationRelease notes for 1.1.0
+* Added status panels to data source and publisher
+* Performance improvements
+* License enforcement
+* Allow manual start of historical data sync
+* Added documentation

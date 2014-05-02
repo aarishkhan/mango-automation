@@ -1,0 +1,22 @@
+<licenseTypes>
+    <licenseType id="ip-only">
+        <description>Unlimited I/P points. 25 MS/TP point limit.</description>
+        <price>50</price>
+        <features>
+            <mstp-points>25</mstp-points>
+        </features>
+    </licenseType>
+    <licenseType id="mstp-only">
+        <description>Unlimited MS/TP points. 25 I/P point limit.</description>
+        <price>50</price>
+        <features>
+            <ip-points>25</ip-points>
+        </features>
+    </licenseType>
+    <licenseType id="paid">
+        <description>No restrictions.</description>
+        <price>90</price>
+        <price fromType="ip-only">45</price> <!-- Upgrade from ip-only -->
+        <price fromType="mstp-only">45</price> <!-- Upgrade from mstp-only -->
+    </licenseType>
+</licenseTypes>

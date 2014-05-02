@@ -1,0 +1,37 @@
+<GradientsGallery>
+  <Pattern name="Simple gray">
+    <GradientInfo>
+      <Alphas>
+        <Number index="0" value="1"/>
+        <Number index="1" value="1"/>
+      </Alphas>
+      <Colors>
+        <Number index="0" value="13421772"/>
+        <Number index="1" value="3355443"/>
+      </Colors>
+      <Ratios>
+        <Number index="0" value="0"/>
+        <Number index="1" value="255"/>
+      </Ratios>
+    </GradientInfo>
+  </Pattern>
+  <Pattern name="Heating">
+    <GradientInfo>
+      <Alphas>
+        <Number index="0" value="1"/>
+        <Number index="1" value="1"/>
+        <Number index="2" value="1"/>
+      </Alphas>
+      <Colors>
+        <Number index="0" value="13369344"/>
+        <Number index="1" value="13434624"/>
+        <Number index="2" value="3381504"/>
+      </Colors>
+      <Ratios>
+        <Number index="0" value="0"/>
+        <Number index="1" value="128"/>
+        <Number index="2" value="255"/>
+      </Ratios>
+    </GradientInfo>
+  </Pattern>
+</GradientsGallery>

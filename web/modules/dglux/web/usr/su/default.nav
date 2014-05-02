@@ -1,0 +1,6 @@
+<nav version="1.0">
+  <node name="Home" ord="dglux:" icon="file:!packs/icons/d/document-globe.png">
+    <node name="Home" ord="" icon="file:!packs/icons/d/document-globe.png">
+    </node>
+  </node>
+</nav>

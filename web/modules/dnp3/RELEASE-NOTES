@@ -1,0 +1,24 @@
+*Version 1.4.3*
+* Updated, Core 2.2
+
+*Version 1.4.2*
+* added RXTX into lib folder as core no longer contains this library
+
+*Version 1.4.1*
+
+* Updated to work with core 2.1
+
+*Version 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Version 1.3.0*
+
+* Compilation warning fix in data source VO
+* Updated to work with core 1.3
+
+
+*Version 1.1.1*
+
+* Compilation warning fix in data source VO

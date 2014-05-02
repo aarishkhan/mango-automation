@@ -1,0 +1,24 @@
+Weather_Status,Daytime_Icons,Nighttime_Icons
+A Few Clouds,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Clear,station:|file:!prophet/Packs/Symbol/Weather/sunny.png,station:|file:!prophet/Packs/Symbol/Weather/full_moon.png
+Cloudy,station:|file:!prophet/Packs/Symbol/Weather/cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/cloudy.png
+Dust,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Fair,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Fog,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Freezing Rain,station:|file:!prophet/Packs/Symbol/Weather/rain.png,station:|file:!prophet/Packs/Symbol/Weather/rain.png
+Haze,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Heavy Rain,station:|file:!prophet/Packs/Symbol/Weather/rain.png,station:|file:!prophet/Packs/Symbol/Weather/rain.png
+Light Rain,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy_rain.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy_rain.png
+Misty,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy_rain.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy_rain.png
+Mostly Cloudy,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Mostly Sunny,station:|file:!prophet/Packs/Symbol/Weather/sunny.png,station:|file:!prophet/Packs/Symbol/Weather/full_moon.png
+Overcast,station:|file:!prophet/Packs/Symbol/Weather/cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/cloudy.png
+Partly Cloudy,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Partly Sunny,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Rain,station:|file:!prophet/Packs/Symbol/Weather/rain.png,station:|file:!prophet/Packs/Symbol/Weather/rain.png
+Snow,station:|file:!prophet/Packs/Symbol/Weather/snow.png,station:|file:!prophet/Packs/Symbol/Weather/snow.png
+Sunny,station:|file:!prophet/Packs/Symbol/Weather/sunny.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Thunderstorms,station:|file:!prophet/Packs/Symbol/Weather/lightning.png,station:|file:!prophet/Packs/Symbol/Weather/lightning.png
+Unknown,station:|file:!prophet/Packs/Symbol/Weather/sunny.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy.png
+Windy,station:|file:!prophet/Packs/Symbol/Weather/tornado.png,station:|file:!prophet/Packs/Symbol/Weather/tornado.png
+Fog/Mist,station:|file:!prophet/Packs/Symbol/Weather/partly_cloudy_rain.png,station:|file:!prophet/Packs/Symbol/Weather/moon_partly_cloudy_rain.png

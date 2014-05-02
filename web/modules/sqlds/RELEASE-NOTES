@@ -1,0 +1,23 @@
+*Release notes for 1.5.1*
+* Core 2.2
+
+*Release notes for 1.5.1*
+* Fixed bug in point table column headers, now showing row Identifier for Row based query points
+
+*Release notes for 1.5.0*
+* Adding Table Modifier Point types to allow update/insert into tables with multiple parameterized statements.
+* Updated to work with core 2.1
+
+*Release notes for 1.4.0*
+
+* Updated to work with core 2.0
+
+
+*Release notes for 1.3.0*
+
+* Updated to work with core 1.3
+
+
+*Release notes for 1.0.1*
+
+* Fix for error message when saving points
